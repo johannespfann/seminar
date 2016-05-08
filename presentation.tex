@@ -1,0 +1,114 @@
+\documentclass[compress]{beamer}
+
+\mode<presentation>
+{
+\useoutertheme[subsection=false,footline=authorinstitutetitle]{miniframes}
+\useinnertheme{rectangles}
+\usecolortheme{whale}
+\usecolortheme{orchid}
+\usefonttheme{professionalfonts}
+
+\setbeamertemplate{footline}
+{
+	\begin{beamercolorbox}[wd=0.33\textwidth,ht=2.2ex,dp=0.8ex,leftskip=1.4em,rightskip=1.4em]{author in head/foot}% 
+		\usebeamerfont{author in head/foot}%
+		\insertshortauthor%
+	\end{beamercolorbox}%
+ 	\vspace*{-3.0ex}\hspace*{0.33\textwidth}%
+ 	\begin{beamercolorbox}[wd=0.33\textwidth,ht=2.2ex,dp=0.8ex,left,leftskip=1.4em,rightskip=1.4em]{author in head/foot}% 
+     	\usebeamerfont{institute in head/foot}%
+ 		\insertshortinstitute%
+ 	\end{beamercolorbox}%
+  	\begin{beamercolorbox}[wd=0.34\textwidth,ht=2.2ex,dp=0.8ex,left,leftskip=1.4em,rightskip=1.4em]{title in head/foot}
+      	\usebeamerfont{title in head/foot}
+  		\insertshorttitle
+  		\hfill\insertframenumber\,/\,\inserttotalframenumber
+  	\end{beamercolorbox}
+}
+
+\beamertemplatenavigationsymbolsempty
+\setbeamercovered{transparent}
+
+}
+
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+
+% font definitions, try \usepackage{ae} instead of the following
+% three lines if you don't like this look
+\usepackage{mathpazo}
+\usepackage[scaled=.90]{helvet}
+%\usepackage{helvet}
+\usepackage{courier}
+\usepackage{graphics}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+
+\usepackage[T1]{fontenc}
+\usepackage{multicol}
+
+
+\newcommand{\textqt}[1]{\frqq #1\flqq\ }
+
+
+\hypersetup{
+   pdftitle={Seminarvortrag},
+   colorlinks=false,
+   linkcolor=black,
+   pdfpagemode=None,
+   pdfstartview=Fit
+  }
+
+
+\author[Pfann]{%
+  Johannes Pfann
+}
+
+
+\date{}
+
+\institute[FAU Erlangen-Nürnberg]{
+  Lehrstuhl für Software Engineering\\
+  Friedrich-Alexander-Universität Erlangen-Nürnberg
+}
+
+\subject{Seminar Design Patterns und Anti-Patterns}
+\title{Vortragsthema}
+
+\begin{document}
+
+\frame{\titlepage} 
+
+\section[Inhalt]{Inhalt}
+
+\frame{\tableofcontents}
+
+
+
+
+\section[Überblick]{Überblick}
+
+\include{./presentation/intro}
+
+
+
+
+\begin{frame}
+  \frametitle{Folien-Überschrift}
+  \framesubtitle{Kleine Überschrift}
+  \begin{itemize}
+  \item  Punkt 1
+  \item Punkt 2
+  \item  Punkt 3
+  \end{itemize}
+\end{frame}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

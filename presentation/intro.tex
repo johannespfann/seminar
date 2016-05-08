@@ -1,0 +1,39 @@
+\subsection{Erzeugungsmuster - Was ist das?}
+\begin{frame}
+	\frametitle{Erzeugungsmuster -- Was ist das?}
+	\begin{block}{Erzeugungsmuster ...}
+	\begin{itemize}
+		\item klassifizieren die Erzeugung von Objekten
+		\item kapseln die konkreten Klassen eines Systems
+		\item verbergen konkrete Erzeugungsprozesse dieser Klassen	
+	\end{itemize}
+	\end{block}	
+	\begin{block}{Konsequenzen}
+	\begin{itemize}
+		\item Erhöhte Flexibilität \textit{wer wann was wie} erzeugt.
+		\item System wird unabhängiger von der Zusammenstellung und Erzeugung der verwendeten Objekte
+		\item Es wird lediglich mit den abstrakten Schnittstellen gearbeitet
+	\end{itemize}
+	\end{block}	
+\end{frame}
+
+\subsection{Typen von Erzeugungsmustern}
+\begin{frame}
+	\frametitle{Typen von Erzeugungsmustern}
+	\begin{block}{Klassenbasiert}
+		Bei klassenbasierten Mustern wird Vererbung verwendet
+		\begin{itemize}
+			\item Factory Method
+		\end{itemize} 	
+	\end{block}
+
+	\begin{block}{Objektbasiert}
+		Bei objektbasierten Mustern wird der Erzeugungsprozess an andere Objekte delegiert
+				\begin{itemize}
+					\item \alert<2-> {Singleton}
+					\item \alert<2-> {Prototype}
+					\item \alert<2-> {Abstract Factory}
+					\item Builder				
+				\end{itemize}	
+	\end{block}
+\end{frame}
