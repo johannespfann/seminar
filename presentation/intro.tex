@@ -1,39 +1,51 @@
-\subsection{Erzeugungsmuster - Was ist das?}
+\subsection*{Erzeugungsmuster - Was ist das?}
 \begin{frame}
-	\frametitle{Erzeugungsmuster -- Was ist das?}
-	\begin{block}{Erzeugungsmuster ...}
+	\frametitle{Verhaltensmuster -- Was ist das?}
+	\begin{block}{Verhaltensmuster ...}
 	\begin{itemize}
-		\item klassifizieren die Erzeugung von Objekten
-		\item kapseln die konkreten Klassen eines Systems
-		\item verbergen konkrete Erzeugungsprozesse dieser Klassen	
+		\item Zuweisung von Zuständigkeiten
+		\item Wechselseitige Kommunikation zwischen Objekten
+		\item Beschreibung von komplexen Programmabläufen
 	\end{itemize}
 	\end{block}	
 	\begin{block}{Konsequenzen}
 	\begin{itemize}
-		\item Erhöhte Flexibilität \textit{wer wann was wie} erzeugt.
-		\item System wird unabhängiger von der Zusammenstellung und Erzeugung der verwendeten Objekte
-		\item Es wird lediglich mit den abstrakten Schnittstellen gearbeitet
+		\item Trennung von Verantwortlichkeiten
+		\item Veringerung der Kopplung 
+		\item Erhöhung der Flexibilität der Software hinsichtlich ihres Verhaltens
+		\item Bessere Verständlichkeit eines Programmablaufes
 	\end{itemize}
 	\end{block}	
 \end{frame}
 
-\subsection{Typen von Erzeugungsmustern}
+\subsection*{Typen von Erzeugungsmustern}
 \begin{frame}
 	\frametitle{Typen von Erzeugungsmustern}
 	\begin{block}{Klassenbasiert}
-		Bei klassenbasierten Mustern wird Vererbung verwendet
+		Klassenbasierte Verhaltensmuster wenden für die VErhaltenszuordnung zu den Klassen das Vererbungsprinzip an. 
 		\begin{itemize}
-			\item Factory Method
+			\item Template Method
+			\item Interpreter
 		\end{itemize} 	
 	\end{block}
 
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Typen von Erzeugungsmustern}
 	\begin{block}{Objektbasiert}
 		Bei objektbasierten Mustern wird der Erzeugungsprozess an andere Objekte delegiert
 				\begin{itemize}
-					\item \alert<2-> {Singleton}
-					\item \alert<2-> {Prototype}
-					\item \alert<2-> {Abstract Factory}
-					\item Builder				
+					\item \alert<1-> {Observer}
+					\item \alert<1-> {Command}
+					\item \alert<1-> {Visitor}
+					\item Strategy			
+					\item Mediator
+					\item Iterator
+					\item Memento 
+					\item State
+					\item Chain of Responsibility
 				\end{itemize}	
 	\end{block}
 \end{frame}
