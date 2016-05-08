@@ -1,0 +1,54 @@
+\section{Beispiel}
+Um das Visitor-Pattern besser zu demonstrieren, wird dieses anhand des folgenden Beispiels erklärt. In einer Küche gibt es mehrere Sorten Obst und Gemüse. Die Variation dieser verschiedenen Sorten ist überschaubar und wird sich nicht mehr ändern. Allerdings ist unklar, welche Operationen auf diese Objekte angewendet werden kann und in Zukunft noch angewendet werden könnte. Um dieses zu berücksichtigen erstellen wir eine Objektstruktur und verlagern die Operationen auf dieses nicht in den Objekten selbst, sondern außerhalb. Hierfür erstellen wir zunächst ein Interface \texttt{Element} mit der Schnittstelle \texttt{accept(Visitor aVisitor}, der Objekte mit dem Interface \texttt{Vistor} entgegennehmen kann.  Methode.
+
+\begin{beispiel}{java}{Element}{Element}
+public interface Element {
+    void accept(Visitor aVisitor);
+}
+\end{beispiel}
+
+Dementsprechend benötigen wir ein Interface \texttt{Visitor} das die Methoden zum Besuchen der einzelnen VArianten der Elemente bereitstellt.
+
+\begin{beispiel}{java}{Visitor}{Visitor}
+public interface Visitor {
+    void visit(Apfel aApfel);
+    void visit(Kiwi aKiwi);
+    void visit(Paprika aPaprika);
+}
+\end{beispiel}
+ 
+Zunächst betrachten wir einen konkreten Visitor. Die erste Operation für alle Sorten bezieht sich auf das Waschen. Hierfür wird ein WaschenVisitor implementiert, der jeweils alle Methoden bereitstellt zum besuchen des jeweiligen Elements. 
+
+
+\begin{beispiel}{java}{WaschenVisitor}{WaschenVisitor}
+public class WaschenVisitor implements Visitor {
+    public void visit(Apfel aApfel) {
+        wasche(aApfel);
+    }
+    public void visit(Kiwi aKiwi) {
+        wasche(aKiwi);
+    }
+    public void visit(Paprika aPaprika) {
+        wasche(aPaprika);
+    }
+    ...
+}
+\end{beispiel}
+
+Nachfolgend betrachten wir nur das Element \texttt{Apfel}. In der visit-Methode wird ein Apfel übergeben, der dann auf diesem Element entsprechenden Operationen ausführt.
+Diese Methode wird allerdings in der accept-Methode der Klasse \texttt{Apfel} aufgerufen. Die Methode \texttt{accept} ruft die Methode \texttt{visit} des aktuellen Visitors auf (in diesem Fall der WaschenVisitor) und übergibt sich selbst dieser
+
+
+
+\begin{beispiel}{java}{Apfel}{Apfel}
+public class Apfel implements Element {
+	...
+    public void accept(Visitor aVisitor) {
+		aVsisitor.visit(this);
+    }
+}
+\end{beispiel}
+
+
+
+

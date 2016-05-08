@@ -1,0 +1,9 @@
+\section{Implementierung}
+
+Wer ist für die Traversierung der  Objektstruktur verantwortlich? Ein Visitor-Objekt muss jedes einzelne Element der Objektstruktur aufsuchen. Hierfür gibt es drei Implementierungsmöglichkeiten. 
+\paragraph{Die Objektstruktur} Die Objektstruktur übernimmt die Zuständigkeit über all seine Elemente zu traversieren. Dieses geschieht oft mithilfe eines Composite Patterns, bei dem ein Element seine Kindelemente mit deren Mehtode \texttt{accept} aufruft und einen Vistor übergibt.
+\paragraph{Der Iterator} Eine andere Möglichkeit ist ein interner oder externer Iterator. Dieser könnte bei dem Aufruf des nächsten Elements die Methode \texttt{accept} anstoßen.
+\paragraph{Der Visitor} Die letzte der drei Varianten ist, die Traversierung den Visitor-Objekten zu überlassen. Der Nachteil dieser Variante ist , mehrfach den Traversierungscodein den verschiedenen Vistors zu haben. Hierfür könnte man allerdings eine abstrakte Klasse einführen, der den redundanten Code eliminiert. Der entscheidente Vorteil dieser VAriante ist, verschiedene Möglichkeiten der Traversierung durch die Objektstruktur anzubieten.
+
+
+

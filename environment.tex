@@ -1,0 +1,19 @@
+\lstnewenvironment{beispiel}[3]{
+    \lstset{language=#1, 
+    numberbychapter=true,
+    basicstyle=\ttfamily\small, 
+    identifierstyle=\color{black}, 
+    keywordstyle=\color{blue}, 
+    stringstyle=\color{verde}, 
+    commentstyle=\color{red}, 
+   	breaklines=true, 
+   	numbers=left,
+   	label=#2,
+   	caption=#3,
+   	numberstyle=\small, 
+   	frame=single}
+   	\begingroup
+   	\nopagebreak
+   	}
+   	{\endgroup}%  	   
+   	

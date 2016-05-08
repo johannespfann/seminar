@@ -1,0 +1,17 @@
+\section{Vor-  und Nachteile}
+
+\subsection{Vorteile}
+\begin{itemize}
+
+
+\item es können weitere Operationen hinzugefügt werden, ohne die Objektstruktur anzupassen.
+\item Funktionalität kann so gezielt auf bestimmte Arten von Objekten eingesetzt werden.
+\item Verwandte Operationen werden im Visitor zentral verwaltet
+\item Visitor können mit Objekten aus voneinander unabhängigen Klassenhierachien arbeiten. Mit dem Iterator-Pattern könnten zum Beispiel nur Funktionen aufgerufen werden, die in der Schnittstelle implementiert werden. Beim Iterator-Pattern können auf die verschiedenen Methoden der konkreten Elemente zugegriffen werden.
+\end{itemize}
+\subsection{Nachteile}
+\begin{itemize}
+
+\item Der Nachteil ist das durchbrechen der Kapselung. Den Vistors müssen unter Umständen bestimmte Operationen der Elemente zur Verfügung gestellt werden, die den internen Zustand des Objekts verändern.
+\item Das Hinzufügen von neuen Elementen ist mit der Änderung von allen Vistors verbunden.
+\end{itemize}

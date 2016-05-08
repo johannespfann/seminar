@@ -1,0 +1,48 @@
+\section{Beispiel}
+Um das Observer-Pattern besser zu illustrieren wird dieses mithilfe eines Beispiels implementiert. Das Beispielszenario behandelt eine fiktive Arbeitsvermittlung bei der sich Personen melden und benachrichtigt werden sobald ein Jobangebot die Arbeitsvermittlung erreicht. Wir wählen die Variante  Subjekt als Interface  und die Benachrichtigung druch das Push-Model implementiert wird. Hierfür erstellen wir zunächst das Interface Beobachter und Subject . Ein konkretes Subjekt wird gezwungen die Beobachter zu registrieren, zu entfernen und sie zu benachrichtigen (siehe Abbildung \ref{beobachter} und \ref{subject}). 
+
+\begin{beispiel}{java}{beobachter}{Beobachter}
+public interface Beobachter {
+    void update(Object aObject);
+}
+\end{beispiel}
+
+\begin{beispiel}{java}{subject}{Subjekt}
+public interface Subjekt {
+
+    void registrieren(Beobachter aBeobachter);
+    void entferne(Beobachter aBeobachter);
+    void benachrichtige(Object aObject);
+
+}
+\end{beispiel}
+
+Im zweiten Schritt wird dann die Klasse Arbeitsvermittlung erstellt die das Interface Subjekt erben muss. Wird die Methode benachrichtigen aufgerufen, wird durch alle registrierten Beobachter iteriert und dessen Methode \texttt{update} aufgerufen. Die Informationen des jeweiligen Jobs werden hier durch Object dargestellt und beim Aufruf der Methode \texttt{update} übergeben. (siehe Abbildung \ref{konkretesSubjekt})
+
+\begin{beispiel}{java}{konkretesSubjekt}{Arbeitsvermittlung}
+public class Arbeitsvermittlung implements Subjekt {
+    private List<Beobachter> mBeobachter;
+    
+    public void registrieren(Beobachter aBeobachter) {
+        mBeobachter.add(aBeobachter);
+    }
+    public void entferne(Beobachter aBeobachter) {
+        mBeobachter.remove(aBeobachter);
+    }
+    public void benachrichtige(Object aObject) {
+        for(Beobachter beobachter : mBeobachter){
+            beobachter.update(aObject);
+        }
+    }
+}
+\end{beispiel}
+
+Als letztes betrachten wir die Klasse \texttt{PersonA}. Diese übernimmt die Rolle des Beobachters indem sie von dem Interface \texttt{Beobachter} erbt und die Methode \texttt{update} implementiert.
+
+\begin{beispiel}{java}{konkretesBesucher}{PersonA}
+public class PersonA implements Beobachter{
+    public void update(Object aObject) {
+        doSomething(aObject);
+    }
+}
+\end{beispiel}

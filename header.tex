@@ -1,0 +1,96 @@
+\documentclass[a4paper,11pt]{scrreprt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\documentclass[a4paper,15pt]{scrbook}
+%\documentclass[a4paper,12pt]{scrartcl}
+%\documentclass[a4paper,13pt]{scrreprt}
+
+%\usepackage[latin9]{inputenc}
+\usepackage{scrpage2}
+\usepackage{titleref}
+\usepackage[ngerman]{babel}
+\usepackage{verbatim}
+\usepackage{multicol}
+\usepackage{lmodern}  
+\usepackage{tabularx} 
+\usepackage{graphicx}
+\usepackage{blindtext}
+\usepackage{microtype}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{framed} %umramen eines Bereiches
+\usepackage[left=25mm,right=30mm,top=25mm,bottom=30mm]{geometry}
+
+%\usepackage[singlespacing]{setspace}
+\usepackage[onehalfspacing]{setspace}
+%\usepackage[doublespacing]{setspace}
+
+\usepackage{listings}
+\usepackage[svgnames]{xcolor} 
+\usepackage{setspace}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage{pdfpages}
+\usepackage{mdwlist}
+\usepackage{prettyref}
+
+\usepackage{hyperref}
+
+
+%%%%%% Beschriftung
+\newcommand{\changefont}[3]{
+\fontfamily{#1}\fontseries{#2}\fontshape{#3}\selectfont}
+
+\include{./color}
+\include{./environment}
+	
+\begin{document}
+
+%-------------------------------------
+% Titelseite 
+\input{./title}
+%-------------------------------------
+
+%-------------------------------------
+% Verzeichnisse  
+\tableofcontents % Inhaltsverzeichnis
+%\listoffigures % Abbildungsverzeichnis 
+%\listoftables % Tabellenverzeichnis 
+%-------------------------------------
+
+%-------------------------------------
+% Textkörper
+%%\chapter{Einleitung}
+%%\input{./einleitung/einleitung}
+\chapter{Observer}
+\input{./paper/observer/intent}
+\input{./paper/observer/beschreibung}
+\input{./paper/observer/implementierung}
+\input{./paper/observer/beispiel}
+\input{./paper/observer/vorundnachteile}
+
+\chapter{Command}
+\input{./paper/command/intent}
+\input{./paper/command/beschreibung}
+\input{./paper/command/implementierung}
+\input{./paper/command/beispiel}
+\input{./paper/command/vorundnachteile}
+
+\chapter{Visitor}
+\input{./paper/visitor/intent}
+\input{./paper/visitor/beschreibung}
+\input{./paper/visitor/implementierung}
+\input{./paper/visitor/beispiel}
+\input{./paper/visitor/vorundnachteile}
+%\chapter{Einleitung}
+%\input{./aaaglobaleeinleitung}
+
+%-------------------------------------
+
+%-------------------------------------
+% Quellen / Glossar
+\input{./paper/quellen/quellen}
+
+%-------------------------------------
+
+\end{document}

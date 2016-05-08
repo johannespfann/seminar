@@ -1,0 +1,48 @@
+\section{Beispiel}
+
+Als  Beispieszenario wird  ein Logistikunternehmen das verschiedene Pakete versendet gewählt. Bei der Übermittlung von unterschiedlichen Paketen zu unterschiedlichen Empfängern müssen verschiedene Schritte getätigt werden. Außerdem können sich durch neue Richtlinien Arbeitsschritte ändern. 
+Durch eine zusätzliche Schicht trennen wir das Vorhaben, ein Paket zu versenden von den tatächlichen Schritten, die es benötigt um ein Paket zu versenden. 
+Als erstes konstruieren wir eine Schnittstelle \texttt{Command}. Dieser geben wir eine Methode \texttt{execute} mit dem Parameter Paket. 
+
+\begin{beispiel}{java}{Command}{Command}
+public interface Command {
+    void execute(Paket aPaket);
+}
+\end{beispiel}
+
+Danach erstellen wir das Logistikunternehmen als Objekt um von dort alle Arten von Paketen zu versenden. Welches Command-Objekt zum Ausführen der jeweiligen Schritte verwenden wird von außerhalb bestimmt.
+
+\begin{beispiel}{java}{Logistikunternehmen}{InlandskundeSecureCommand}
+public class Logistikunternehmen {
+    Command mCommand = null;
+    public Logistikunternehmen(Command aCommand){
+        mCommand = aCommand;
+    }
+    public void versendePacket(Paket aPaket){
+        mCommand.execute(aPaket);
+    }
+}
+\end{beispiel}
+
+Die erste Veriante um ein Paket zu versenden, ist das \texttt{InlandsKundenDefaultCommand}. Dieses kennt seinen Empfänger, nämlich den Inlandskunden und ruft auf diesem nur die Methode \texttt{empfangePaket} auf.
+
+\begin{beispiel}{java}{InlandsKundeDefaultCommand}{InlandsKundeDefaultCommand}
+public class InlandsKundeDefaultCommand implements Command{
+    Inlandskunde mInlandskunde;
+    public void execute(Paket aPaket) {
+        mInlandskunde.empfangePaket(aPaket);
+    }
+}
+\end{beispiel}
+
+Die zweite Variante ist die sichere Übermittlung eines Paketes mit einer zusätzlichen Verpackung. Wieder kennt das Command-Objekt den Empfänger und ruft dessen Methode auf. Allerdings wird Logik in dem Command-Objekt behandelt indem das Paket zusätzlich verpackt wird.
+
+\begin{beispiel}{java}{InlandskundeSecureCommand}{InlandskundeSecureCommand}
+public class InlandskundeSecureCommand {
+    Inlandskunde mInlandskunde;
+    public void execute(Paket aPaket) {
+        mInlandskunde.empfangePaket(verpackePacket(aPaket));
+    }
+}
+\end{beispiel}
+
