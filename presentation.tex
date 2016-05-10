@@ -49,7 +49,9 @@
 
 \usepackage[T1]{fontenc}
 \usepackage{multicol}
-
+\usepackage{verbatim}
+\usepackage{listings}
+\usepackage{xcolor}
 
 \newcommand{\textqt}[1]{\frqq #1\flqq\ }
 
@@ -61,7 +63,6 @@
    pdfpagemode=None,
    pdfstartview=Fit
   }
-
 
 \author[Pfann]{%
   Johannes Pfann
@@ -78,11 +79,55 @@
 \subject{Seminar Design Patterns und Anti-Patterns}
 \title{Vortragsthema}
 
+\newcommand{\changefont}[3]{
+\fontfamily{#1}\fontseries{#2}\fontshape{#3}\selectfont}
+
+\include{./environment}
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Gliederung}
+    \tableofcontents[currentsection, hideothersubsections]
+  \end{frame}
+}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\usepackage[section]{minted}
+\definecolor{mintedbackground}{rgb}{0.95,0.95,0.95}
+
+\newmintedfile[javacode]{java}{
+	bgcolor=mintedbackground,
+	linenos=true,
+	numberblanklines=true,
+	numbersep=5pt,
+	gobble=0,
+	funcnamehighlighting=true,
+	tabsize=4,
+	obeytabs=false,
+	mathescape=false
+	samepage=true,
+	showspaces=false,
+	showtabs =false,
+	texcl=false,
+	breaklines=true,
+	fontsize=\scriptsize,
+	style=trac
+}
+
+
 \begin{document}
+
 
 \frame{\titlepage} 
 
-\frame{\tableofcontents}
+\begin{frame}
+	\frametitle{Gliederung}
+	\tableofcontents[hideallsubsections]
+\end{frame}
 
 
 \section[Verhaltensmuster]{Verhaltensmuster}
@@ -94,7 +139,6 @@
 \input{./presentation/observer}
 
 \section[Command]{Command}
-
 
 
 \section[Visitor]{Visitor}
@@ -111,7 +155,3 @@
 
 \end{document}
 
-%%% Local Variables: 
-%%% mode: latex
-%%% TeX-master: t
-%%% End: 
