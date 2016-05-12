@@ -84,11 +84,19 @@
 
 \include{./environment}
 
+%\AtBeginSection[]
+%{
+%  \begin{frame}
+%    \frametitle{Gliederung}
+%    \tableofcontents[currentsection, hideothersubsections]
+%  \end{frame}
+%}
+
 \AtBeginSection[]
 {
   \begin{frame}
     \frametitle{Gliederung}
-    \tableofcontents[currentsection, hideothersubsections]
+    \tableofcontents[currentsection, hideallsubsections]
   \end{frame}
 }
 
@@ -131,25 +139,18 @@
 
 
 \section[Verhaltensmuster]{Verhaltensmuster}
-
 \input{./presentation/intro}
-
 \section[Observer]{Observer}
-
 \input{./presentation/observer}
-
 \section[Command]{Command}
-
-
+\input{./presentation/command}
 \section[Visitor]{Visitor}
-
-
 
 \section[Zusammenfassung]{Zusammenfassung}
 
 
 
-\section[Quellen]{Quellen}
+%\section[Quellen]{Quellen}
 
 
 

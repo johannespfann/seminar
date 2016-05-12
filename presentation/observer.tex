@@ -5,13 +5,7 @@
   \begin{block}{Zweck}
   	Definition einer 1-zu-n-Abhängigkeit zwischen Objekten, damit im Fall einer Zustandsänderung eines Ojbekts alle davon abhängigen Objekte entsprechend benachrichtigt und automatisch aktualisiert werden.
   \end{block}
-  	
-  \begin{block}{Motivation/Ziel}
-  	\begin{itemize}
-  		\item asdf
-  		\item asdf
-  	\end{itemize}
-  \end{block}
+  
 \end{frame}
 
 \subsection{Klassendiagramm - Observer Pattern}
@@ -71,9 +65,25 @@
 		  	\item Observer müssen Subject kennen
 		  \end{itemize}  
   		\end{block}
-  		Beides kann auch gemischt weden!
+  		Beides kann auch gemischt werden!
 \end{frame}
 
+\begin{frame}
+\frametitle{Implementierungsmöglichkeiten}
+		\begin{block}{Ausführung der Updates durch Subject}
+  		 \begin{itemize}
+  		 	\item Z.B. in Setter-Methoden
+		  	\item Weniger fehleranfällig
+		  	\item Jedoch zu häufige Updates
+		  \end{itemize}  
+  		\end{block}		
+  		\begin{block}{Ausführung der Updates durch Client}
+		  \begin{itemize}
+		  	\item Fehleranfälliger
+		  	\item Regulierung der Updates
+		  \end{itemize}
+  		\end{block}	
+\end{frame}
 
 \begin{frame}
 \frametitle{Implementierungsmöglichkeiten}
@@ -89,17 +99,78 @@
 
 \begin{frame}
 \frametitle{Implementierungsmöglichkeiten}
-		\begin{block}{Ausführung der Updates durch Subject}
+		\begin{block}{Observer gibt sein Interesse an}
   		 \begin{itemize}
-		  	\item Weniger fehleranfällig
-		  	\item Jedoch zu häufige Updates
+		  	\item Observer registrieren sich für ein bestimmtes Event
+		  	\item Subject kümmert sich um die Zuordnung
+		  	\item Benachrichtigung wird effizienter
+		  	\item Subject wird komplexer
 		  \end{itemize}  
   		\end{block}		
-  		\begin{block}{Ausführung der Updates durch Client}
-		  \begin{itemize}
-		  	\item Fehleranfälliger
-		  	\item Regulierung der Updates
-		  \end{itemize}
-  		\end{block}
-			
+  		\javacode{resources/observer_sortToObserverlist.java}  
+\end{frame}
+
+\begin{frame}
+\frametitle{Implementierungsmöglichkeiten}
+		\begin{block}{Einführung eines \texttt{ChangeManager}}
+  		 \begin{itemize}
+		  	\item Subject delegiert Aufgaben zu ChangeManger
+		  	\item ChangeManger hat drei Aufgaben:
+		  	\begin{itemize}
+		  		\item Legt Zuordnung von Subject, Observer und Aspect fest
+		  		\item Legt Aktualisierungsstrategie fest
+		  		\item Führt die Aktualisierung aus
+		  	\end{itemize}
+		  \end{itemize}  
+  		\end{block}		
+  		\begin{figure}
+		\includegraphics[scale=.4]{paper/observer/changemanager}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Observer-Pattern als Fehlerquelle}
+		\begin{block}{Konsistenz vor dem Update}
+			\begin{itemize}
+  				\item Vorsicht bei Vererbung
+  			\end{itemize}  
+  		\end{block}		
+	\begin{block}{Verwaiste Referenzen auf gelöschte Subjects}
+			\begin{itemize}
+  				\item Subject wird gelöscht und Observer wissen nichts darüber
+  				\item Java hat Garbage collection 
+  				\item C++ hat Pointer 
+  			\end{itemize}  
+  		\end{block}	
+  		\begin{block}{Komplexe Strukturn}
+			\begin{itemize}
+  				\item Zyklische Abhänigkeiten
+  				\item Fehlersuche sehr komplex
+  			\end{itemize}  
+  		\end{block}	
+		
+\end{frame}
+
+
+\subsection{Fazit}
+\begin{frame}
+	\frametitle{Fazit}
+	\begin{columns} 
+    	\column[t]{.50\textwidth} 
+    		\begin{exampleblock}{Vorteile}
+    			\begin{itemize}
+    				\item Lose Kopplung
+    				\item Flexibilität
+    				\item Automatische Benachrichtigung
+    			\end{itemize}
+    		\end{exampleblock}
+    	\column[t]{.50\textwidth} 
+    		\begin{alertblock}{Nachteile}
+    			\begin{itemize}
+    				\item Komplexität
+    				\item Nachvollziehbarkeit (bei Fehlern)
+    				\item Gefahr von Zyklen
+    			\end{itemize}
+    		\end{alertblock}
+  	\end{columns}   	  		
 \end{frame}
