@@ -110,3 +110,25 @@ von ihr bearbeiteten Elemente zu verändern.%
 
   \javacode{resources/visitor_trav_visitor_object.java} 
 \end{frame}
+
+\subsection{Fazit}
+\begin{frame}
+	\frametitle{Fazit}
+	\begin{columns} 
+    	\column[t]{.50\textwidth} 
+    		\begin{exampleblock}{Vorteile}
+    			\begin{itemize}
+    				\item Leicht neue Operationen auf eine Objektstruktur zu implementieren
+    				\item Selektives bearbeiten einzelner Elemente einer Objektstruktur
+    				\item Flexiblität indem Commands leicht ausgetauscht werden können
+    			\end{itemize}
+    		\end{exampleblock}
+    	\column[t]{.50\textwidth} 
+    		\begin{alertblock}{Nachteile}
+    			\begin{itemize}
+    				\item Enge Kopplung des Visitor mit den Elementen einer Objektstruktur
+    				\item Elemente müssen über öffentliche Methoden und Attribute dem Visitor den Zugriff bereitstellen
+    			\end{itemize}
+    		\end{alertblock}
+  	\end{columns}   	  		
+\end{frame}
