@@ -58,3 +58,55 @@ von ihr bearbeiteten Elemente zu verändern.%
 		\javacode{resources/visitor_main.java} 
 	\end{figure}
 \end{frame}
+
+\begin{frame}
+	\frametitle{Implementierung}
+  \begin{block}{Wer ist für die Traversierung der Objektstruktur verantwortlich}
+  	\begin{itemize}
+  		\item In der Objektstuktur
+  		\item Im Visitor-Objekt
+  		\item In einem eigenen Iterator-Objekt
+  	\end{itemize}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Implementierung}
+  \begin{block}{Objektstruktur}
+  	\begin{itemize}
+  		\item Objektstruktur kümmert sich um die Traversierung 
+  		\item Visitor muss der Objektstruktur übergeben werden
+  		\item Realisierbar durch z.B Composide-Pattern
+  	\end{itemize}
+  \end{block}
+  \javacode{resources/visitor_composide_example.java} 
+\end{frame}
+
+\begin{frame}
+	\frametitle{Implementierung}
+  \begin{block}{Iterator}
+  	\begin{itemize}
+  		\item Zugriff auf Elementen einer Objektstruktur, ohne die  Objektstruktur zu kennen.
+  		\item Die Visitor-Objekten den Iterator übergeben
+  		\item Beim Zugriff eines Elements die accept-Methode aufrufen
+
+  	\end{itemize}
+  \end{block}
+	\begin{block}{Im Visitor-Objekt}
+  	\begin{itemize}
+  		\item Objektstruktur wird den konkreten Visitors übergeben
+  		\item Visitor übernimmt jetzt die Traversierung
+  		\item Nachteil: Traversierung in jedem Visitor
+  		\item Vorteil: Flexibler in der Steuerung für bestimmte Aufgaben
+
+  	\end{itemize}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Implementierung}
+
+  \javacode{resources/visitor_trav_visitor_object.java} 
+\end{frame}
