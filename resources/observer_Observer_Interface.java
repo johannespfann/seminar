@@ -1,3 +1,3 @@
 public interface Observer{
-  void update(Object aObject);
+  void update(Offer aOffer);
 }

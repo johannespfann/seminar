@@ -39,7 +39,7 @@ update(Object)</panel_attributes>
       <w>210</w>
       <h>130</h>
     </coordinates>
-    <panel_attributes>Arbeitsvermittlung
+    <panel_attributes>JobCenter
 --
 List&lt;Observer&gt; observer
 --
@@ -57,7 +57,7 @@ notify()
       <w>210</w>
       <h>130</h>
     </coordinates>
-    <panel_attributes>Klient
+    <panel_attributes>Client
 --
 update(Object)
 ...</panel_attributes>

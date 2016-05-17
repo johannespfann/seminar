@@ -1,8 +1,8 @@
-public class Klient implements Observer {
+public class Client implements Observer {
     
-    public void update(Angebot aAngebot) {
-        if(aAngebot instanceof InformatikJob){
-            doSomething(aAngebot);
+    public void update(Offer aOffer) {
+        if(aOffer instanceof DeveloperJob){
+            doSomething(aOffer);
         }
     }
 }

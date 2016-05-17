@@ -1,9 +1,9 @@
-    public void update(Subject aSubject, Angebot aAngebot) {
-        if(aSubject instanceof ArbeitsvermittlungA){
-            doSomething(aAngebot);
+    public void update(Subject aSubject, Offer aOffer) {
+        if(aSubject instanceof JobCenterA){
+            doSomething(aOffer);
         }
-        if(aSubject instanceof ArbeitsvermittlungB){
-            doSomething(aAngebot);
+        if(aSubject instanceof JobCenterB){
+            doSomething(aOffer);
         }
 		...
     }

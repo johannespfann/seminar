@@ -63,7 +63,7 @@ notify()
       <w>210</w>
       <h>100</h>
     </coordinates>
-    <panel_attributes>*KonkreterBeobachter*
+    <panel_attributes>*ConcreteObserver*
 --
 update()
 

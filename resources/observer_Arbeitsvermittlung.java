@@ -1,4 +1,4 @@
-public class Arbeitsvermittlung implements Subject {
+public class JobCenter implements Subject {
 
     List<Observer> mObserver = new LinkedList<Observer>();
     
@@ -8,9 +8,9 @@ public class Arbeitsvermittlung implements Subject {
     public void detach(Observer aObserver) {
         mObserver.remove(aObserver);
     }
-    public void notifyObservers(Angebot aAngebot) {
+    public void notifyObservers(Offer aOffer) {
         for(Observer observer : mObserver){
-            observer.update(aAngebot);
+            observer.update(aOffer);
         }
     }
 }

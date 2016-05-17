@@ -3,7 +3,7 @@
   \frametitle{Definition}
 
   \begin{block}{Zweck}
-  	Definition einer 1-zu-n-Abhängigkeit zwischen Objekten, damit im Fall einer Zustandsänderung eines Ojbekts alle davon abhängigen Objekte entsprechend benachrichtigt und automatisch aktualisiert werden.
+  	Definition einer 1-zu-n-Abhängigkeit zwischen Objekten, damit im Fall einer Zustandsänderung eines Objekts alle davon abhängigen Objekte entsprechend benachrichtigt und automatisch aktualisiert werden.
   \end{block}
   
 \end{frame}
@@ -12,7 +12,7 @@
 \begin{frame}
 	\frametitle{Observer Pattern}
 	\begin{itemize}
-		\item Basiert auf Rollen
+		\item Unterscheidet zwei Rollen
 		\item Stellt Mechanismus zur Broadcast-Kommunikation dar
 	\end{itemize}	
 	
@@ -22,13 +22,13 @@
 \end{frame}
 
 
-\subsection{Beispiel - Arbeitsvermittlung}
+\subsection{Beispiel - Job center}
 \begin{frame}
-	\frametitle{Arbeitsvermittlung}
+	\frametitle{Job center}
 	\begin{itemize}
-		\item 1-zu-n-Kommunikation zwischen Vermittlung und Klienten (Broadcast)
-		\item Arbeitsvermittlung kennt weder Anzahl noch konkrete Klienten
-		\item Klienten melden sich nur an, wenn sie daran interessiert sind.
+		\item 1-zu-n-Kommunikation zwischen JobCenter und Client (Broadcast)
+		\item JobCenter kennt weder Anzahl noch konkrete Clients
+		\item Clients melden sich nur an, wenn sie einen Job suchen
 	\end{itemize}		 
   	\begin{figure}
 		\includegraphics[scale=.4]{paper/observer/arbeitsvermittlung}
@@ -37,13 +37,13 @@
 
 
 \begin{frame}
-\frametitle{Beispiel - Klient}
+\frametitle{Beispiel - Client}
 		\javacode{resources/observer_Subject_Interface.java} 
   		\javacode{resources/observer_Klient.java}	  
 \end{frame}
 
 \begin{frame}
-\frametitle{Beispiel - Arbeitsvermittlung}
+\frametitle{Beispiel - JobCenter}
 		\javacode{resources/observer_Observer_Interface.java}
   		\javacode{resources/observer_Arbeitsvermittlung.java}	  
 \end{frame}
@@ -114,7 +114,7 @@
 \frametitle{Implementierungsmöglichkeiten}
 		\begin{block}{Einführung eines \texttt{ChangeManager}}
   		 \begin{itemize}
-		  	\item Subject delegiert Aufgaben zu ChangeManger
+		  	\item Subject delegiert Aufgaben zu ChangeManager
 		  	\item ChangeManger hat drei Aufgaben:
 		  	\begin{itemize}
 		  		\item Legt Zuordnung von Subject, Observer und Aspect fest
@@ -138,13 +138,11 @@
 	\begin{block}{Verwaiste Referenzen auf gelöschte Subjects}
 			\begin{itemize}
   				\item Subject wird gelöscht und Observer wissen nichts darüber
-  				\item Java hat Garbage collection 
-  				\item C++ hat Pointer 
   			\end{itemize}  
   		\end{block}	
   		\begin{block}{Komplexe Strukturn}
 			\begin{itemize}
-  				\item Zyklische Abhänigkeiten
+  				\item Zyklische Abhängigkeiten
   				\item Fehlersuche sehr komplex
   			\end{itemize}  
   		\end{block}	

@@ -1,14 +1,14 @@
-public class Arbeitsvermittlung implements Subject {
+public class JobCenter implements Subject {
 
     @Override
-    public void notifyObservers(Angebot aAngebot) {
+    public void notifyObservers(Offer aOffer) {
         for(Observer observer : mObserver){
-            observer.update(aAngebot);
+            observer.update(aOffer);
         }
     }
 
-    public void addAngebot(Angebot aAngebot){
-        notifyObservers(aAngebot);
+    public void addAngebot(Offer aOffer){
+        notifyObservers(aOffer);
     }
 }
 
