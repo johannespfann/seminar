@@ -14,7 +14,7 @@ Subject
 --
 attach(Observer)
 detach(Observer)
-notify()</panel_attributes>
+notifyObservers(Offer)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -28,7 +28,7 @@ notify()</panel_attributes>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 Observer
 --
-update(Object)</panel_attributes>
+update(Offer)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -45,7 +45,7 @@ List&lt;Observer&gt; observer
 --
 attach(Observer)
 detach(Observer)
-notify()
+notifyObservers(Offer)
 ...</panel_attributes>
     <additional_attributes/>
   </element>
@@ -59,7 +59,7 @@ notify()
     </coordinates>
     <panel_attributes>Client
 --
-update(Object)
+update(Offer)
 ...</panel_attributes>
     <additional_attributes/>
   </element>

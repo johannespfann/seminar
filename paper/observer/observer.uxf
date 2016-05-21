@@ -14,7 +14,7 @@
 --
 attach(Observer)
 detach(Observer)
-notify()
+notifyObservers()
 
 </panel_attributes>
     <additional_attributes/>
@@ -49,7 +49,7 @@ List&lt;Observer&gt; observers
 --
 attach(Observer)
 detach(Observer)
-notify()
+notifyObservers()
 
 
 </panel_attributes>

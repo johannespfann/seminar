@@ -10,17 +10,20 @@
 
 \subsection{Klassendiagramm - Observer Pattern}
 \begin{frame}
-	\frametitle{Observer Pattern}
-	\begin{itemize}
-		\item Unterscheidet zwei Rollen
-		\item Stellt Mechanismus zur Broadcast-Kommunikation dar
-	\end{itemize}	
-	
-  	\begin{figure}
-		\includegraphics[scale=.4]{paper/observer/observer}
-	\end{figure}
+\begin{columns} 
+    	\column[c]{.30\textwidth} 
+    		\begin{enumerate}
+    			\item 1-zu-n-Anbhänigkeit
+    			\item im Fall einer Zustandsänderung
+    			\item benachrichtigen
+    			\item automatisch
+    		\end{enumerate}
+    	\column[c]{.70\textwidth} 
+    			\begin{figure}
+					\includegraphics[scale=.4]{paper/observer/observer}
+				\end{figure}
+  	\end{columns} 
 \end{frame}
-
 
 \subsection{Beispiel - Job center}
 \begin{frame}
@@ -39,13 +42,13 @@
 \begin{frame}
 \frametitle{Beispiel - Client}
 		\javacode{resources/observer_Subject_Interface.java} 
-  		\javacode{resources/observer_Klient.java}	  
+		\javacode{resources/observer_Arbeitsvermittlung.java}	  
 \end{frame}
 
 \begin{frame}
 \frametitle{Beispiel - JobCenter}
 		\javacode{resources/observer_Observer_Interface.java}
-  		\javacode{resources/observer_Arbeitsvermittlung.java}	  
+  		\javacode{resources/observer_Klient.java}	 
 \end{frame}
 
 \subsection{Implementierungsmöglichkeiten}
