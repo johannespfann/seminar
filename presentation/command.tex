@@ -2,17 +2,17 @@
 \begin{frame}
   \frametitle{Definition}
   \begin{block}{Zweck}
-  	Kapselung eines Requests als Objekt, um so die Parametrisierung von Clients mit verschiedenen Requests, Warteschlangen- oder Logging-Operationen sowie das Rückgängigmachen von Operationen zu ermöglichen
+  	Kapselung eines Requests als Objekt, um so die Parametrisierung von Clients mit verschiedenen Requests zu ermöglichen.
   \end{block}
   
 \end{frame}
 
 \subsection{Klassendiagramm - Command Pattern}
 \begin{frame}
-	\frametitle{Observer Pattern}		
+	\frametitle{Command Pattern}		
 	\begin{itemize}
-		\item Kapselt Request in ein eigenes Objekt Command
-		\item Implementierung von Command kennt dann auch den Empfänger
+		\item Kapselt Request in ein eigenes Command-Object
+		\item Implementierung von Command kennt den Empfänger
 	\end{itemize}	
   	\begin{figure}
 		\includegraphics[scale=.4]{paper/command/command}
@@ -21,7 +21,7 @@
 
 \subsection{Beispiel - Deliver Service}
 \begin{frame}
-	\frametitle{Klassendiagramm}
+	\frametitle{Beispiel Klassendiagramm}
 	\begin{itemize}
 		\item Verschiedene Objekte die unterschiedlich ausgeliefert werden müssen
 		\item Unterschiedliche Kunden
@@ -89,6 +89,8 @@
    \end{block}
    
 		\javacode{resources/command_command_logic.java}
+		\javacode{resources/command_deligate_logic.java}
+		
 \end{frame}
 
 

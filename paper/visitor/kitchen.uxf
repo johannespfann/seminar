@@ -13,7 +13,7 @@
 *Visitor*
 --
 visitBroccoli(Broccoli)
-visitConcreteElementB(ConreteElementB)
+visitPotato(ConreteElementB)
 ...
 
 </panel_attributes>

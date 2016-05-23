@@ -1,14 +1,15 @@
 public class main {
 
     public final static void main(String[] args){
+        DeliverService deliverService = new DeliverService();
         DeliverBigPackageCommand commandDeliverToDATEV = 
 		new DeliverBigPackageCommand(new Company());
-        DeliverLetterCommand commandDeliverToJohanes = 
+        DeliverLetterCommand commandDeliverToJohannes = 
 		new DeliverLetterCommand(new PrivatePerson());
 
-        mDeliverService.sendObject(
+        deliverService.sendObject(
 		commandDeliverToDATEV, new Package());
-        mDeliverService.sendObject(
+        deliverService.sendObject(
 		commandDeliverToJohanes, new Letter());
     }
 }

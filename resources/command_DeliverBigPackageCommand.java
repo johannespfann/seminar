@@ -4,8 +4,8 @@ public class DeliverBigPackageCommand implements Command {
         mCompany = aCompany;
     }
     @Override
-    public void execute(Object aObject) {
-        mCompany.cheackPackage((Package)aObject);
+    public void execute(Deliverable aObject) {
+        mCompany.checkPackage((Package)aObject);
         mCompany.deliverPackage((Package)aObject);
     }
 }

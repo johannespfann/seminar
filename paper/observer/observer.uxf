@@ -30,7 +30,7 @@ notifyObservers()
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 *Observer*
 --
-update()
+update(Object)
 
 </panel_attributes>
     <additional_attributes/>
@@ -65,7 +65,7 @@ notifyObservers()
     </coordinates>
     <panel_attributes>*ConcreteObserver*
 --
-update()
+update(Object)
 
 </panel_attributes>
     <additional_attributes/>

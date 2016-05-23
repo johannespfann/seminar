@@ -14,7 +14,7 @@ Subject
 --
 attach(Observer)
 detach(Observer)
-notify()</panel_attributes>
+notifyObserver()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -28,7 +28,7 @@ notify()</panel_attributes>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 Observer
 --
-update(Subject)</panel_attributes>
+update(Subject,Object)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -44,7 +44,7 @@ ChangeManager
 --
 attach(Subject,Observer,Aspect)
 detach(Subject,Observer,Aspect)
-notify()
+notifyObserver()
 --
 Subject-Observer-Aspect-Mapping
 </panel_attributes>
