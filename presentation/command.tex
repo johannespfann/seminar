@@ -9,7 +9,7 @@
 
 \subsection{Klassendiagramm - Command Pattern}
 \begin{frame}
-	\frametitle{Command Pattern}		
+	\frametitle{Klassendiagramm}		
 	\begin{itemize}
 		\item Kapselt Request in ein eigenes Command-Object
 		\item Implementierung von Command kennt den Empfänger
@@ -21,7 +21,7 @@
 
 \subsection{Beispiel - Deliver Service}
 \begin{frame}
-	\frametitle{Beispiel Klassendiagramm}
+	\frametitle{Beispiel}
 	\begin{itemize}
 		\item Verschiedene Objekte die unterschiedlich ausgeliefert werden müssen
 		\item Unterschiedliche Kunden
@@ -34,7 +34,7 @@
 
 
 \begin{frame}
-	\frametitle{Command}
+	\frametitle{Beispiel}
   	\begin{figure}
 		\javacode{resources/command_interface.java} 
 		\javacode{resources/command_DeliverBigPackageCommand.java} 
@@ -42,7 +42,7 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Command Interface}
+	\frametitle{Beispiel}
   	\begin{figure}
 		\javacode{resources/command_DeliveryService.java} 
 		\javacode{resources/command_main.java}
@@ -52,7 +52,7 @@
 \subsection{Implementierung}
 
 \begin{frame}
-	\frametitle{Erweiterung}
+	\frametitle{Implementierungsmöglichkeiten}
   	\begin{block}{Undo-Funktion}
 \begin{itemize}
 		\item Erweiterung des Interfaces Command mit undo-Methode
@@ -68,7 +68,7 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Erweiterung}
+	\frametitle{Implementierungsmöglichkeiten}
   	\begin{block}{Makro-Befehle}
 		\begin{itemize}
 			\item Mehrere Receiver könnten gleichzeitig durch ein Command bearbeitet werden
@@ -80,7 +80,7 @@
 
 
 \begin{frame}
-	\frametitle{Implementierungsmöglichkeit}
+	\frametitle{Implementierungsmöglichkeiten}
   	\begin{block}{Intelligenz der Commandobjekte}
 		\begin{itemize}
 		\item Command übernimmt vollständig die Logik
@@ -102,8 +102,7 @@
     		\begin{exampleblock}{Vorteile}
     			\begin{itemize}
     				\item Entkopplung von Befehl und Ausführung
-    				\item Aufrufer können mit dem Interface Command arbeiten ohne wissen zu müssen, welche Operationen hinter den konkreten Commands stecken
-    				\item Flexiblität indem Commands leicht ausgetauscht werden können
+    				\item Hohe Flexibilität durch Austauschbarkeit
     			\end{itemize}
     		\end{exampleblock}
     	\column[t]{.50\textwidth} 

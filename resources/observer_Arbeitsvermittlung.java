@@ -1,6 +1,6 @@
 public class JobCenter implements Subject {
 
-    List<Observer> mObserver = new LinkedList<Observer>();
+    List<Observer> observers = new LinkedList<Observer>();
     
     public void attach(Observer aObserver) {
         mObserver.add(aObserver);
@@ -9,7 +9,7 @@ public class JobCenter implements Subject {
         mObserver.remove(aObserver);
     }
     public void notifyObservers(Offer aOffer) {
-        for(Observer observer : mObserver){
+        for(Observer observer : observers){
             observer.update(aOffer);
         }
     }

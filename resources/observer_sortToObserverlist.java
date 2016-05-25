@@ -1,3 +1,3 @@
- public void attach(Observer aObserver, Aspect aInterest){
-        sortToObserverlist(aInterest, aObserver);
+ public void attach(Observer aObserver, Demand aDemand){
+        sortToObserverlist(aDemand, aObserver);
  }

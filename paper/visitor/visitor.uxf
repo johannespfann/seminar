@@ -12,8 +12,8 @@
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 *Visitor*
 --
-visitConcreteElementA(ConreteElementA)
-visitConcreteElementB(ConreteElementB)
+visitElementA(ElementA)
+visitElementB(ElementB)
 
 
 </panel_attributes>
@@ -29,8 +29,8 @@ visitConcreteElementB(ConreteElementB)
     </coordinates>
     <panel_attributes>*ActionOneVisitor*
 --
-visitConcreteElementA(ConreteElementA)
-visitConcreteElementB(ConreteElementB)
+visitElementA(ElementA)
+visitElementB(ElementB)
 
 
 </panel_attributes>
@@ -46,8 +46,8 @@ visitConcreteElementB(ConreteElementB)
     </coordinates>
     <panel_attributes>*ActionTwoVisitor*
 --
-visitConcreteElementA(ConreteElementA)
-visitConcreteElementB(ConreteElementB)
+visitElementA(ElementA)
+visitElementB(ElementB)
 
 
 </panel_attributes>
@@ -97,7 +97,7 @@ accept(Visitor)</panel_attributes>
       <w>310</w>
       <h>80</h>
     </coordinates>
-    <panel_attributes>*ConreteElementA*
+    <panel_attributes>*ElementA*
 --
 accept(Visitor v)
 operationA()
@@ -113,7 +113,7 @@ operationA()
       <w>310</w>
       <h>80</h>
     </coordinates>
-    <panel_attributes>*ConreteElementB*
+    <panel_attributes>*ElementB*
 --
 accept(Visitor v)
 operationB()

@@ -22,11 +22,12 @@ execute(Deliverable)
     <coordinates>
       <x>410</x>
       <y>300</y>
-      <w>210</w>
+      <w>260</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>*DeliveryService*
---</panel_attributes>
+--
+sendObject(Command, Deliverable)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -71,14 +72,14 @@ deliverLetter(Letter)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>610</x>
+      <x>660</x>
       <y>320</y>
-      <w>320</w>
+      <w>270</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;
 </panel_attributes>
-    <additional_attributes>10.0;20.0;300.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;250.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>

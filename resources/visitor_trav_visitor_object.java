@@ -1,7 +1,7 @@
 public class CleanVisitor implements Visitor {
 	...
-    public CleanVisitor(List<Element> aElement){
-        mElement = aElement;
+    public CleanVisitor(List<Element> aElements){
+        mElement = aElements;
     }
 
     @Override

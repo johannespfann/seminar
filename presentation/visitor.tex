@@ -2,19 +2,15 @@
 \begin{frame}
   \frametitle{Definition}
   \begin{block}{Zweck}
-  	 Das
-Design Pattern Visitor ermöglicht die Definition einer neuen Operation, ohne die Klasse der
-von ihr bearbeiteten Elemente zu verändern.
+Das Visitor Pattern ermöglicht es, neue Operationen auf den Elementen einer Struktur zu definieren, ohne die Elemente selbst anzupassen.
   \end{block}
-  
 \end{frame}
 
 \subsection{Klassendiagramm - Visitor Pattern}
 \begin{frame}
-	\frametitle{Visitor Pattern}		
+	\frametitle{Klassendiagramm}		
 	\begin{itemize}
-		\item Elemente der Objektstruktur fest
-		\item Operationen auf Objektstruktur sollen austauschbar und erweiterbar sein
+		\item Anzahl unterschiedlicher Elemente der Objektstruktur fest
 	\end{itemize}	
   	\begin{figure}
 		\includegraphics[scale=.3]{paper/visitor/visitor}
@@ -23,10 +19,10 @@ von ihr bearbeiteten Elemente zu verändern.
 
 \subsection{Beispiel - Kitchen}
 \begin{frame}
-	\frametitle{Klassendiagramm}
+	\frametitle{Beispiel}
 	\begin{itemize}
 		\item Die verschiedenen Sorten die wir bearbeiten möchten, bleiben konstant
-		\item Wie wir allerdings diese bearbeiten ist noch unklar.
+		\item Wie wir diese bearbeiten ist noch unklar.
 	\end{itemize}	
 	
   	\begin{figure}
@@ -37,7 +33,7 @@ von ihr bearbeiteten Elemente zu verändern.
 
 
 \begin{frame}
-	\frametitle{Schnittstellen}
+	\frametitle{Beispiel}
   	\begin{figure}
 		\javacode{resources/visitor_element_interface.java} 
 		\javacode{resources/visitor_visitor_interface.java}
@@ -45,7 +41,7 @@ von ihr bearbeiteten Elemente zu verändern.
 \end{frame}
 
 \begin{frame}
-	\frametitle{Implementierungen}
+	\frametitle{Beispiel}
   	\begin{figure}
 		\javacode{resources/visitor_potato.java} 
 		\javacode{resources/visitor_cleanvisitor.java}
@@ -53,26 +49,26 @@ von ihr bearbeiteten Elemente zu verändern.
 \end{frame}
 
 \begin{frame}
-	\frametitle{Client}
+	\frametitle{Beispiel}
   	\begin{figure}
 		\javacode{resources/visitor_main.java} 
 	\end{figure}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Implementierungen}
+	\frametitle{Implementierungsmöglichkeiten}
   \begin{block}{Wer ist für die Traversierung der Objektstruktur verantwortlich}
   	\begin{itemize}
-  		\item In der Objektstuktur
-  		\item Im Visitor-Objekt
-  		\item In einem eigenen Iterator-Objekt
+  		\item Die Objektstuktur
+  		\item Ein Iterator
+  		\item Das Visitor-Objekt
   	\end{itemize}
   \end{block}
 \end{frame}
 
 
 \begin{frame}
-	\frametitle{Implementierung}
+	\frametitle{Implementierungsmöglichkeiten}
   \begin{block}{Objektstruktur}
   	\begin{itemize}
   		\item Objektstruktur kümmert sich um die Traversierung 
@@ -84,11 +80,11 @@ von ihr bearbeiteten Elemente zu verändern.
 \end{frame}
 
 \begin{frame}
-	\frametitle{Implementierung}
+	\frametitle{Implementierungsmöglichkeiten}
   \begin{block}{Iterator}
   	\begin{itemize}
-  		\item Zugriff auf Elementen einer Objektstruktur, ohne die  Objektstruktur zu kennen.
-  		\item Die Visitor-Objekten den Iterator übergeben
+  		\item Abstraktion zum Zugriff auf Elemente einer Objektstruktur, ohne die  Objektstruktur zu kennen.
+  		\item Visitor-Objekt wird dem Iterator übergeben
   		\item Beim Zugriff eines Elements die accept-Methode aufrufen
 
   	\end{itemize}
@@ -98,15 +94,14 @@ von ihr bearbeiteten Elemente zu verändern.
   		\item Objektstruktur wird den konkreten Visitors übergeben
   		\item Visitor übernimmt jetzt die Traversierung
   		\item Nachteil: Traversierung in jedem Visitor
-  		\item Vorteil: Flexibler in der Steuerung für bestimmte Aufgaben
-
+  		\item Vorteil: Möglichkeit, die Objektstruktur unterschiedlich zu durchlaufen
   	\end{itemize}
   \end{block}
 \end{frame}
 
 
 \begin{frame}
-	\frametitle{Implementierung}
+	\frametitle{Implementierungsmöglichkeiten}
 
   \javacode{resources/visitor_trav_visitor_object.java} 
 \end{frame}
@@ -120,14 +115,13 @@ von ihr bearbeiteten Elemente zu verändern.
     			\begin{itemize}
     				\item Leicht neue Operationen auf eine Objektstruktur zu implementieren
     				\item Selektives bearbeiten einzelner Elemente einer Objektstruktur
-    				\item Flexiblität indem Commands leicht ausgetauscht werden können
     			\end{itemize}
     		\end{exampleblock}
     	\column[t]{.50\textwidth} 
     		\begin{alertblock}{Nachteile}
     			\begin{itemize}
     				\item Enge Kopplung des Visitor mit den Elementen einer Objektstruktur
-    				\item Elemente müssen über öffentliche Methoden und Attribute dem Visitor den Zugriff bereitstellen
+    				\item Elemente müssen über öffentliche Methoden und Attribute den Zugriff bereitstellen
     			\end{itemize}
     		\end{alertblock}
   	\end{columns}   	  		

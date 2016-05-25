@@ -29,7 +29,7 @@
 
 \subsection{Beispiel - Jobcenter}
 \begin{frame}
-	\frametitle{Jobcenter}
+	\frametitle{Beispiel}
 	\begin{itemize}
 		\item 1-zu-n-Kommunikation zwischen Jobcenter und Client 
 		\item Jobcenter kennt weder Anzahl noch konkrete Clients
@@ -42,14 +42,14 @@
 
 
 \begin{frame}
-\frametitle{Beispiel - Jobcenter}
+\frametitle{Beispiel}
 
 		\javacode{resources/observer_Subject_Interface.java} 
 		\javacode{resources/observer_Arbeitsvermittlung.java}	  
 \end{frame}
 
 \begin{frame}
-\frametitle{Beispiel - Client}
+\frametitle{Beispiel}
 		\javacode{resources/observer_Observer_Interface.java}
   		\javacode{resources/observer_Klient.java}	 
 \end{frame}
@@ -123,7 +123,7 @@
 		  	\item Subject delegiert Aufgaben zu ChangeManager
 		  	\item ChangeManger hat drei Aufgaben:
 		  	\begin{itemize}
-		  		\item Legt Zuordnung von Subject, Observer und Aspect fest
+		  		\item Legt Zuordnung von Subject, Observer und Demand fest
 		  		\item Legt Aktualisierungsstrategie fest
 		  		\item Führt die Aktualisierung aus
 		  	\end{itemize}
@@ -134,26 +134,25 @@
 	\end{figure}
 \end{frame}
 
-\begin{frame}
-\frametitle{Observer-Pattern als Fehlerquelle}
-		\begin{block}{Konsistenz vor dem Update}
-			\begin{itemize}
-  				\item Vorsicht bei Vererbung
-  			\end{itemize}  
-  		\end{block}		
-	\begin{block}{Verwaiste Referenzen auf gelöschte Subjects}
-			\begin{itemize}
-  				\item Subject wird gelöscht und Observer wissen nichts darüber
-  			\end{itemize}  
-  		\end{block}	
-  		\begin{block}{Komplexe Strukturn}
-			\begin{itemize}
-  				\item Zyklische Abhängigkeiten
-  				\item Komplexe Fehlersuche
-  			\end{itemize}  
-  		\end{block}	
-		
-\end{frame}
+%\begin{frame}
+%\frametitle{Observer-Pattern als Fehlerquelle}
+%		\begin{block}{Konsistenz vor dem Update}
+%			\begin{itemize}
+%  				\item Vorsicht bei Vererbung
+%  			\end{itemize}  
+%  		\end{block}		
+%	\begin{block}{Verwaiste Referenzen auf gelöschte Subjects}
+%			\begin{itemize}
+%  				\item Subject wird gelöscht und Observer wissen nichts darüber
+%  			\end{itemize}  
+%  		\end{block}	
+%  		\begin{block}{Komplexe Strukturn}
+%			\begin{itemize}
+%  				\item Zyklische Abhängigkeiten
+%  				\item Komplexe Fehlersuche
+%  			\end{itemize}  
+%  		\end{block}			
+%\end{frame}
 
 
 \subsection{Fazit}
@@ -172,7 +171,6 @@
     		\begin{alertblock}{Nachteile}
     			\begin{itemize}
     				\item Komplexität
-    				\item Nachvollziehbarkeit (bei Fehlern)
     				\item Gefahr von Zyklen
     			\end{itemize}
     		\end{alertblock}
