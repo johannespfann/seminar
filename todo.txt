@@ -1,0 +1,6 @@
+TODO:
+
+* Command-Beispiel: Objekte dem konkreten Command übergeben und nicht casten!!
+* Composite (Fehler)
+* Sequenzdiagramme für Observer und Visitor
+
