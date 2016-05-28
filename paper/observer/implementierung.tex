@@ -1,7 +1,3 @@
-\section{Implementierung}
-Für das Observer-Pattern gibt es mehrere Implementierungsmöglichkeiten. In Abschnitt 1.1 ... 
-
-
 \paragraph{Push- oder Pull-Model} Bei den beiden Modellen werden die Unterschiedlichen Arten der Übertragung der Daten betrachtet. Bei dem Push-Model wird bei der Benachrichtigung ein oder mehrere Parameter übertragen. In unserem Fall muss das UML-Diagramm in Abbildung \ref{observerdiagramm} angepasst werden. Die Methode \texttt{aktualisieren()} benötigt einen zusätzlichen Parameter. Dieser wird dann bei dem Objekt \texttt{KonkretesSubjekt} beim Aufruf der Beobachter übergeben. Der Nachteil dieser Variante ist, das im Extremfall mehrere Parameter übergeben werden, jedoch nicht von jeden Observer benötigt werden. Oder ein neuer Beobachter benötrigt andere Daten wodurch man das Interface \texttt{Beobachter} und das Objekt \texttt{KonkretesSubjekt} anpassen muss.
 Die Pull Methode verfolgt einen anderen Ansatz. Hier werden keine Daten als Parameter übergeben sondern die Beobachter greifen direkt nach einer Benachrichtigung auf die Instanz \texttt{KonkretesSubjekt} zu um die Daten zu erhalten. Der Nachteil dieser Variante ist, das die einzelnen Beobachter das Subjekt kennen müssen.
 

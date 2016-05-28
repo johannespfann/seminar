@@ -1,5 +1,3 @@
-\section{Beschreibung}
-
 Das Ziel des Command-Pattern ist, die Benutzung des Receivers von dem Benutzer, dem Invoker, zu trennen. Hierzu wird eine zusätzliche Schicht eingeführt, nämlich das Command-Objekt. In einem einfachen Szenario, würde der Invoker den Receiver als Objekt besitzen um darauf dessen Methoden aufzurufen. Dadurch ergibt sich allerdings, das der Receiver an den Invoker gebunden ist. Um das dieses Problem zu lösen, führt man auf der Seite des Invokers eine Schnittstelle, \texttt{Command} ein, die eine Methode \texttt{execute} besitzt. Auf der andere Seite erstellt man ein konkretes Objekt, das von dieser Schnittstelle erbt und gleichzeitig den Receiver kennt, um dort diesen zu benutzen. Der Invoker muss also nur ein passendes Command-Objekt erhalten und  dessen \texttt{execute} Methode aufrufen. Die konkrete Durchführung dieser Methode wird also dann in dem konkreten Command-Ojbekt durchgeführt. 
 
 

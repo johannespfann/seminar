@@ -1,15 +1,14 @@
 %\documentclass[a4paper,11pt]{scrreprt}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
 %\documentclass[a4paper,15pt]{scrbook}
 \documentclass[a4paper,11pt]{scrartcl}
 %\documentclass[a4paper,13pt]{scrreprt}
 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 %\usepackage[latin9]{inputenc}
 \usepackage{scrpage2}
 \usepackage{titleref}
 \usepackage[ngerman]{babel}
-
 \usepackage{multicol}
 \usepackage{lmodern}  
 \usepackage{tabularx} 
@@ -21,11 +20,9 @@
 \usepackage{framed} %umramen eines Bereiches
 \usepackage[left=25mm,right=25mm,top=25mm,bottom=25mm]{geometry} % Standard
 %\usepackage[left=20mm,right=20mm,top=25mm,bottom=30mm]{geometry}
-
 %\usepackage[singlespacing]{setspace}
 \usepackage[onehalfspacing]{setspace}
 %\usepackage[doublespacing]{setspace}
-
 \usepackage{verbatim}
 \usepackage{listings}
 %\usepackage[svgnames]{xcolor}
@@ -39,7 +36,6 @@
 \usepackage{multicol}
 \usepackage[section]{minted}	
 \usepackage{hyperref}
-
 
 %%%%%% Beschriftung
 \newcommand{\changefont}[3]{
@@ -60,40 +56,52 @@
 %-------------------------------------
 % Verzeichnisse  
 \tableofcontents % Inhaltsverzeichnis
+\pagebreak
 %\listoffigures % Abbildungsverzeichnis 
 %\listoftables % Tabellenverzeichnis 
 %-------------------------------------
 
 %-------------------------------------
 % Textkörper
-\chapter{Einleitung}
-\input{./paper/einleitung/einleitung}
+%\chapter{Einleitung}
+%\input{./paper/einleitung/einleitung}
 
 %\chapter{Observer}
 \section{Observer}
-\subsection{Definition}
 \input{./paper/observer/intent}
+\subsection{Beschreibung}
 \input{./paper/observer/beschreibung}
+\subsection{Beispiel}
 \input{./paper/observer/beispiel}
-\input{./paper/observer/implementierung}%
+\subsection{Implementierungsmöglichkeiten}
+\input{./paper/observer/implementierung}
+\subsection{Fazit}
 \input{./paper/observer/vorundnachteile}
 
 %\chapter{Command}
+\section{Command}
 \input{./paper/command/intent}
+\subsection{Beschreibung}
 \input{./paper/command/beschreibung}
+\subsection{Beispiel}
 \input{./paper/command/beispiel}
+\subsection{Implementierungsmöglichkeiten}
 \input{./paper/command/implementierung}
+\subsection{Fazit}
 \input{./paper/command/vorundnachteile}
 
 %\chapter{Visitor}
+\section{Visitor}
 \input{./paper/visitor/intent}
+\subsection{Beschreibung}
 \input{./paper/visitor/beschreibung}
+\subsection{Implementierungsmöglichkeit}
 \input{./paper/visitor/implementierung}
+\subsection{Beispiel}
 \input{./paper/visitor/beispiel}
+\subsection{Fazit}
 \input{./paper/visitor/vorundnachteile}
 
-
-%-------------------------------------
 
 %-------------------------------------
 % Quellen / Glossar

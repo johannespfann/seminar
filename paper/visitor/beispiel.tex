@@ -1,4 +1,4 @@
-\section{Beispiel}
+
 Um das Visitor-Pattern besser zu demonstrieren, wird dieses anhand des folgenden Beispiels erklärt. In einer Küche gibt es mehrere Sorten Obst und Gemüse. Die Variation dieser verschiedenen Sorten ist überschaubar und wird sich nicht mehr ändern. Allerdings ist unklar, welche Operationen auf diese Objekte angewendet werden kann und in Zukunft noch angewendet werden könnte. Um dieses zu berücksichtigen erstellen wir eine Objektstruktur und verlagern die Operationen auf dieses nicht in den Objekten selbst, sondern außerhalb. Hierfür erstellen wir zunächst ein Interface \texttt{Element} mit der Schnittstelle \texttt{accept(Visitor aVisitor}, der Objekte mit dem Interface \texttt{Vistor} entgegennehmen kann.  Methode.
 
 \begin{beispiel}{java}{Element}{Element}
