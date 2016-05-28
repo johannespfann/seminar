@@ -1,3 +1,7 @@
+header.fdb_latexmk
+_minted-presentation
+_minted-header
+.DS_Store
 *.out
 *.nav
 *.log
