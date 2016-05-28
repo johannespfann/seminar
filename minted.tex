@@ -1,0 +1,32 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage[section]{minted}
+%  
+% use "-shell-escape" as a new parameter for the command pdflatex
+%
+% \javacode{./folder/javacode.java}
+% http://mirror.unl.edu/ctan/macros/latex/contrib/minted/minted.pdf
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\newlength{\mintednumbersep}
+%\AtBeginDocument{%
+%  \sbox0{\tiny00}%
+%  \setlength\mintednumbersep{\parindent}%
+%  \addtolength\mintednumbersep{-\wd0}%
+%}
+
+\newmintedfile[javacode]{java}{
+	bgcolor=mintedbackground,
+	linenos=true,
+	numberblanklines=true,
+	numbersep=5pt,
+	gobble=0,
+	funcnamehighlighting=true,
+	tabsize=4,
+	obeytabs=false,
+	mathescape=false
+	samepage=true,
+	showspaces=false,
+	showtabs =false,
+	texcl=false,
+	fontsize=\scriptsize,
+}

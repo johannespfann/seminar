@@ -19,7 +19,8 @@
 \usepackage{color}
 \usepackage{colortbl}
 \usepackage{framed} %umramen eines Bereiches
-\usepackage[left=25mm,right=30mm,top=25mm,bottom=30mm]{geometry}
+\usepackage[left=25mm,right=30mm,top=25mm,bottom=30mm]{geometry} % Standard
+%\usepackage[left=20mm,right=20mm,top=25mm,bottom=30mm]{geometry}
 
 %\usepackage[singlespacing]{setspace}
 \usepackage[onehalfspacing]{setspace}
@@ -35,7 +36,8 @@
 \usepackage{pdfpages}
 \usepackage{mdwlist}
 \usepackage{prettyref}
-
+\usepackage{multicol}
+\usepackage[section]{minted}	
 \usepackage{hyperref}
 
 
@@ -45,8 +47,19 @@
 
 \include{./color}
 \include{./environment}
+\input{./minted}
+\input{./listings}	
 	
 \begin{document}
+
+\begin{listing}
+\centering
+\javacode{./resources/observer_Klient.java}
+\caption{Logger Implementierung - Threadsafe mit Double Checking}
+\label{singleton_threadsafe}
+\end{listing}
+
+	
 
 %-------------------------------------
 % Titelseite 
@@ -64,18 +77,19 @@
 % Textkörper
 \chapter{Einleitung}
 \input{./paper/einleitung/einleitung}
+
 \chapter{Observer}
 \input{./paper/observer/intent}
 \input{./paper/observer/beschreibung}
-\input{./paper/observer/implementierung}
 \input{./paper/observer/beispiel}
+\input{./paper/observer/implementierung}%
 \input{./paper/observer/vorundnachteile}
 
 \chapter{Command}
 \input{./paper/command/intent}
 \input{./paper/command/beschreibung}
-\input{./paper/command/implementierung}
 \input{./paper/command/beispiel}
+\input{./paper/command/implementierung}
 \input{./paper/command/vorundnachteile}
 
 \chapter{Visitor}
