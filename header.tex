@@ -1,8 +1,8 @@
-\documentclass[a4paper,11pt]{scrreprt}
+%\documentclass[a4paper,11pt]{scrreprt}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 %\documentclass[a4paper,15pt]{scrbook}
-%\documentclass[a4paper,12pt]{scrartcl}
+\documentclass[a4paper,11pt]{scrartcl}
 %\documentclass[a4paper,13pt]{scrreprt}
 
 %\usepackage[latin9]{inputenc}
@@ -19,7 +19,7 @@
 \usepackage{color}
 \usepackage{colortbl}
 \usepackage{framed} %umramen eines Bereiches
-\usepackage[left=25mm,right=30mm,top=25mm,bottom=30mm]{geometry} % Standard
+\usepackage[left=25mm,right=25mm,top=25mm,bottom=25mm]{geometry} % Standard
 %\usepackage[left=20mm,right=20mm,top=25mm,bottom=30mm]{geometry}
 
 %\usepackage[singlespacing]{setspace}
@@ -45,16 +45,13 @@
 \newcommand{\changefont}[3]{
 \fontfamily{#1}\fontseries{#2}\fontshape{#3}\selectfont}
 
+
 \include{./color}
 \include{./environment}
 \input{./minted}
 \input{./listings}	
 	
 \begin{document}
-
-
-	
-
 %-------------------------------------
 % Titelseite 
 \input{./title}
@@ -72,21 +69,23 @@
 \chapter{Einleitung}
 \input{./paper/einleitung/einleitung}
 
-\chapter{Observer}
+%\chapter{Observer}
+\section{Observer}
+\subsection{Definition}
 \input{./paper/observer/intent}
 \input{./paper/observer/beschreibung}
 \input{./paper/observer/beispiel}
 \input{./paper/observer/implementierung}%
 \input{./paper/observer/vorundnachteile}
 
-\chapter{Command}
+%\chapter{Command}
 \input{./paper/command/intent}
 \input{./paper/command/beschreibung}
 \input{./paper/command/beispiel}
 \input{./paper/command/implementierung}
 \input{./paper/command/vorundnachteile}
 
-\chapter{Visitor}
+%\chapter{Visitor}
 \input{./paper/visitor/intent}
 \input{./paper/visitor/beschreibung}
 \input{./paper/visitor/implementierung}

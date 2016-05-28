@@ -1,8 +1,6 @@
-public class Client implements Observer {
+public class Homepage implements Observer {
     
     public void update(Offer aOffer) {
-        if(aOffer instanceof DeveloperJob){
-            doSomething(aOffer);
-        }
+         updateHomepage(aOffer);
     }
 }

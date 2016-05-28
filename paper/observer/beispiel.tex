@@ -1,55 +1,48 @@
 \section{Beispiel}
-Um das Observer-Pattern besser zu illustrieren wird dieses mithilfe eines Beispiels implementiert. Das Beispielszenario behandelt eine fiktive Arbeitsvermittlung bei der sich Personen melden und benachrichtigt werden sobald ein Jobangebot die Arbeitsvermittlung erreicht. Wir wählen die Variante  Subjekt als Interface  und die Benachrichtigung druch das Push-Model implementiert wird. Hierfür erstellen wir zunächst das Interface Beobachter und Subject . Ein konkretes Subjekt wird gezwungen die Beobachter zu registrieren, zu entfernen und sie zu benachrichtigen (siehe Abbildung \ref{beobachter} und \ref{subject}). 
+Das Beispielszenario behandelt eine fiktive Arbeitsvermittlung deren Softwaresystem mit dem  Observer-Pattern umgesetzt wird. In dem Softwaresystem gibt es eine zentrale Komponente JobCenter, welche in regelmäßigen Abständen neue Stellenauschreibungen von externen Arbeitgebern mitgeteilt bekommt. Diese werden auf der Homepage, sowie auf zahllosen Monitoren in der Arbeitsvermittlung aufgelistet. Bei einer neuen Stellenausschreibung soll die Komponente Jobcenter selbständig alle abhängigen Komponenten, wie Homepage und Monitore benachrichtigen, sodass diese sich aktualisieren können.
+Für dieses Szenario identifizieren wir das Jobcenter als die Rolle des Subjects und die Homepage und Monitore als Observer. Nachfolgend in Listing \ref{observer_observer_interface} und \ref{observer_subject_interface} sind diese zwei Rollen als Interfaces umgesetzt.
+Das Subject definiert neben der Methode \texttt{notifyObsevers()}, zum benachrichtigen aller angemeldeten Observer eine Methode \texttt{attach(Observer)} und \texttt{detach(Observer)} zum An- und Abmelden eines Observers. Das Interface Observer muss hingegen nur zum aktualisieren einer Stellenausschreibung, eine Methode \texttt{update(Offer)} bereitstellen. Der Parameter \texttt{Offer} symbolisiert eine solche Stellenausschreibung, die über die genannte Update-Methode übergeben wird.
 
 
+\begin{listing}[h!]
+   \centering
+   \javacode{./resources/observer_Observer_Interface.java}
+   \caption{Observer Interface}
+    \label{observer_observer_interface}
+\end{listing}     
+ 
+\begin{listing}[h!]
+   \centering
+   \javacode{./resources/observer_Subject_Interface.java}
+   \caption{Subject Interface}
+    \label{observer_subject_interface}
+\end{listing}  
+          
+  
+Im zweiten Schritt wird dann die Klasse Jobcenter (siehe Listing \ref{observer_jobcenter}) implementiert, die von dem Interface Subject erbt und somit die Methoden \texttt{attach(Observer aObserver}, \texttt{detach(Observer aObserver)} und \texttt{notifyObservers()} umsetzt. Zusätzlich initialisiert das Subject eine Collection um die übergebenen Observer über die Attach-Methode zu speichern. Mit der Detach-Methode wird ein Obsever der Collection entfernt. Beim Aufruf der NotifyObserver-Methode wird dieser eine Stellenausschreibung übergeben, die allen gespeicherten Observern über die Update-Methode übergeben wird. 
+Nennenswert ist einmal die Tatsache das das Jobangebot an dieser Stelle nur das Interface Observer kennt und das durch die Iteration ausnahmslos alle Observer benachrichtigt werden.
 
-     
- \begin{beispiel}{java}{beobachter}{Beobachter}
-public interface Beobachter {
-    void update(Object aObject);
-}
-\end{beispiel}      
-      
-       
-\begin{beispiel}{java}{subject}{Subjekt}
-public interface Subjekt {
+\begin{listing}[h!]
+   \centering
+   \javacode{./resources/observer_Arbeitsvermittlung.java}
+   \caption{Jobcenter}
+    \label{observer_jobcenter}
+\end{listing} 
 
-    void registrieren(Beobachter aBeobachter);
-    void entferne(Beobachter aBeobachter);
-    void benachrichtige(Object aObject);
+Als letztes betrachten wir die Klasse \texttt{Homepage} (siehe Listing \ref{observer_client}). Diese übernimmt die Rolle des Observers indem sie von dem Interface \texttt{Observer} erbt und die Methode \texttt{update(Offer aOffer)} implementiert. 
 
-}
-\end{beispiel}     
-      
+\begin{listing}[h!]
+   \centering
+   \javacode{./resources/observer_Klient.java}
+   \caption{Observer - Homepage}
+    \label{observer_client}
+\end{listing}
 
+In Abbildung \ref{observer_sequenz} wird der Ablauf eines solchen Szenarios anhand eines Sequenzdiagramm dargestellt. Zunächst melden sich die Observer \texttt{Homepage} und \texttt{Monitor} am Jobcenter an. Danach wird das JobCenter aktualisiert und alle angemeldeten Observer benachrichtigt.
 
-
-Im zweiten Schritt wird dann die Klasse Arbeitsvermittlung erstellt die das Interface Subjekt erben muss. Wird die Methode benachrichtigen aufgerufen, wird durch alle registrierten Beobachter iteriert und dessen Methode \texttt{update} aufgerufen. Die Informationen des jeweiligen Jobs werden hier durch Object dargestellt und beim Aufruf der Methode \texttt{update} übergeben. (siehe Abbildung \ref{konkretesSubjekt})
-
-\begin{beispiel}{java}{konkretesSubjekt}{Arbeitsvermittlung}
-public class Arbeitsvermittlung implements Subjekt {
-    private List<Beobachter> mBeobachter;
-    
-    public void registrieren(Beobachter aBeobachter) {
-        mBeobachter.add(aBeobachter);
-    }
-    public void entferne(Beobachter aBeobachter) {
-        mBeobachter.remove(aBeobachter);
-    }
-    public void benachrichtige(Object aObject) {
-        for(Beobachter beobachter : mBeobachter){
-            beobachter.update(aObject);
-        }
-    }
-}
-\end{beispiel}
-
-Als letztes betrachten wir die Klasse \texttt{PersonA}. Diese übernimmt die Rolle des Beobachters indem sie von dem Interface \texttt{Beobachter} erbt und die Methode \texttt{update} implementiert.
-
-\begin{beispiel}{java}{konkretesBesucher}{PersonA}
-public class PersonA implements Beobachter{
-    public void update(Object aObject) {
-        doSomething(aObject);
-    }
-}
-\end{beispiel}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{./paper/observer/observer_sequenz}
+\caption{Sequenzdiagramm mit dem Ablauf von JobCenter und desssen Clients}
+\label{observer_sequenz}
+\end{figure} 
