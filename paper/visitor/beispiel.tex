@@ -1,5 +1,5 @@
 
-Um das Visitor-Pattern besser zu demonstrieren, wird dieses anhand des folgenden Beispiels erklärt. In einer Küche gibt es mehrere Sorten Gemüse. Die Variation dieser verschiedenen Sorten ist überschaubar und wird sich nicht mehr ändern. Allerdings ist unklar, welche Operationen auf diese Objekte angewendet werden und in Zukunft noch angewendet werden könnten. Um dieses zu berücksichtigen erstellen wir eine Objektstruktur und verlagern die Operationen auf dieses nicht in den Objekten selbst, sondern außerhalb. Hierfür erstellen wir zunächst ein Interface \texttt{Element} mit der Schnittstelle \texttt{accept(Visitor aVisitor}, der Objekte mit dem Interface \texttt{Vistor} entgegennehmen kann.  Methode.
+Das folgende Beispiel soll das Visitor-Pattern und die Möglichkeiten, welche sich aus dem Pattern ergeben, besser erklären. In einer Küche gibt es mehrere Sorten Gemüse. Die Variation dieser verschiedenen Sorten ist überschaubar und wird sich nicht mehr ändern. Allerdings ist unklar, welche Operationen auf diese Objekte angewendet werden und in Zukunft noch angewendet werden. Um dieses zu berücksichtigen erstellen wir eine Objektstruktur und verlagern die Operationen auf dieses nicht in den Objekten selbst, sondern außerhalb. Hierfür erstellen wir zunächst ein Interface \texttt{Element} mit der Schnittstelle \texttt{accept(Visitor aVisitor} und lassen jedes Element unserer Objektstuktur dieses Interface implementieren. Damit verschaffen wir jedem Element die Möglichkeit ein Visitor-Objekt zu erhalten und auf dessen Methoden zuzugreifen.
 
 
 \begin{listing}[h!]
@@ -9,8 +9,8 @@ Um das Visitor-Pattern besser zu demonstrieren, wird dieses anhand des folgenden
     \label{visitor_element_interface}
 \end{listing}  
 
+Als nächstes erstellen wir das Visitor-Objekt (Listing \ref{visitor_visitor_interface}). Dieses muss für jeden Elementtyp der Objektstruktur eine eigene Methode bereitstellen. Für das Beispiel wurde exemplarisch ein Potato-Element und ein Broccoli-Element erstellt. Für diese beiden Elemente muss das Visitor-Objekt die Methoden definieren, nämlich eine \texttt{visitPotato(Potato)} und \texttt{visitBroccoli(Broccoli} Methode.
 
-Dementsprechend benötigen wir ein Interface \texttt{Visitor} das die Methoden zum Besuchen der einzelnen VArianten der Elemente bereitstellt.
 
 \begin{listing}[h!]
    \centering
@@ -19,8 +19,17 @@ Dementsprechend benötigen wir ein Interface \texttt{Visitor} das die Methoden z
     \label{visitor_visitor_interface}
 \end{listing}  
 
- 
-Zunächst betrachten wir einen konkreten Visitor. Die erste Operation für alle Sorten bezieht sich auf das Waschen. Hierfür wird ein WaschenVisitor implementiert, der jeweils alle Methoden bereitstellt zum besuchen des jeweiligen Elements. 
+In Listing \ref{visitor_potato} ist ein konkretes Elemnt implementiert. Dieses muss durch das Interface Element die Accept-Methode implementieren und bekommt einen beliebigen Visitor.
+In dieser Accept-Methode ruft das Element Potato dann die für ihn gedachte Visitor-Methode, nämlich die \texttt{visitPotato(Potato)} auf und übergibt sich selbst als Potato-Element.
+
+\begin{listing}[h!]
+   \centering
+   \javacode{./resources/visitor_potato.java}
+   \caption{CleanVisitor}
+    \label{visitor_potato}
+\end{listing}  
+
+Daraufhin kann ein konkreter Visitor, hier der CleanVisitor (siehe Listing \ref{visitor_cleanvisitor}) das übergebene Potato modifizieren. Analog werden jetzt die Visit-Methoden für die anderen Elemente implementiert. Voraussetzung ist allerdings an dieser Stelle, das die jeweiligen Elemente öffentliche Attribute oder Methode bereitstellen, damit diese auch entsprechend bearbeitet werden können.
 
 \begin{listing}[h!]
    \centering
@@ -29,16 +38,12 @@ Zunächst betrachten wir einen konkreten Visitor. Die erste Operation für alle 
     \label{visitor_cleanvisitor}
 \end{listing}  
 
-
-Nachfolgend betrachten wir nur das Element \texttt{Apfel}. In der visit-Methode wird ein Apfel übergeben, der dann auf diesem Element entsprechenden Operationen ausführt.
-Diese Methode wird allerdings in der accept-Methode der Klasse \texttt{Apfel} aufgerufen. Die Methode \texttt{accept} ruft die Methode \texttt{visit} des aktuellen Visitors auf (in diesem Fall der WaschenVisitor) und übergibt sich selbst dieser
+Zusammenfassend dient das Sequenzdiagramm in Abbildung \ref{visitor_sequenzdiagramm} um den gesamten Ablauf zu rekapitulieren. Ein beliebiger Client erstellt zunächst die Elemente der Objektstruktur und den Visitor. Dann ruft er bei beiden Elementen mit die Accept-Methode auf und übergibt den Elementen den erstellten konkreten Visitor. Diese rufen ihrerseits die Accept-Methode auf und übergeben sich selbst. Der Visitor ist nun in der Lage die übergebenen Elemente in den dafür vorgesehenen Visit-Methoden zu bearbeiten.
 
 
-\begin{listing}[h!]
-   \centering
-   \javacode{./resources/visitor_potato.java}
-   \caption{CleanVisitor}
-    \label{visitor_potato}
-\end{listing}  
+
+
+
+
 
 
