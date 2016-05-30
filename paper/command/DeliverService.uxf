@@ -13,7 +13,7 @@
 *Command*
 --
 
-execute(Deliverable)
+execute()
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -27,7 +27,7 @@ execute(Deliverable)
     </coordinates>
     <panel_attributes>*DeliveryService*
 --
-sendObject(Command, Deliverable)</panel_attributes>
+sendObject(Command)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -40,8 +40,8 @@ sendObject(Command, Deliverable)</panel_attributes>
     </coordinates>
     <panel_attributes>*DeliverBigPackageCommand*
 --
-
-execute(Package)
+constructor(Package)
+execute()
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -103,8 +103,8 @@ deliverLetter(Letter)</panel_attributes>
     </coordinates>
     <panel_attributes>*DeliverLetterCommand*
 --
-
-execute(Letter)
+constructor(Letter)
+execute()
 </panel_attributes>
     <additional_attributes/>
   </element>

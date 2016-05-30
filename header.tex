@@ -18,7 +18,7 @@
 \usepackage{color}
 \usepackage{colortbl}
 \usepackage{framed} %umramen eines Bereiches
-\usepackage[left=25mm,right=25mm,top=25mm,bottom=25mm]{geometry} % Standard
+%\usepackage[left=25mm,right=25mm,top=25mm,bottom=25mm]{geometry} % Standard
 %\usepackage[left=20mm,right=20mm,top=25mm,bottom=30mm]{geometry}
 %\usepackage[singlespacing]{setspace}
 \usepackage[onehalfspacing]{setspace}
@@ -50,23 +50,24 @@
 \begin{document}
 %-------------------------------------
 % Titelseite 
-\input{./title}
+%\input{./title}
 %-------------------------------------
 
 %-------------------------------------
 % Verzeichnisse  
-\tableofcontents % Inhaltsverzeichnis
-\pagebreak
+%\tableofcontents % Inhaltsverzeichnis
+%\pagebreak
 %\listoffigures % Abbildungsverzeichnis 
 %\listoftables % Tabellenverzeichnis 
 %-------------------------------------
 
 %-------------------------------------
 % Textkörper
+%%%%%%%%%%%%%%%%%%%%%[Einleitung]
 %\chapter{Einleitung}
 %\input{./paper/einleitung/einleitung}
 
-%\chapter{Observer}
+%%%%%%%%%%%%%%%%%%%%%[Observer]
 \section{Observer}
 \input{./paper/observer/intent}
 \subsection{Beschreibung}
@@ -78,7 +79,7 @@
 \subsection{Fazit}
 \input{./paper/observer/vorundnachteile}
 
-%\chapter{Command}
+%%%%%%%%%%%%%%%%%%%%%[Command]
 \section{Command}
 \input{./paper/command/intent}
 \subsection{Beschreibung}
@@ -90,23 +91,21 @@
 \subsection{Fazit}
 \input{./paper/command/vorundnachteile}
 
-%\chapter{Visitor}
+%%%%%%%%%%%%%%%%%%%%%[Visitor]
 \section{Visitor}
 \input{./paper/visitor/intent}
 \subsection{Beschreibung}
 \input{./paper/visitor/beschreibung}
-\subsection{Implementierungsmöglichkeit}
-\input{./paper/visitor/implementierung}
 \subsection{Beispiel}
 \input{./paper/visitor/beispiel}
+\subsection{Implementierungsmöglichkeit}
+\input{./paper/visitor/implementierung}
 \subsection{Fazit}
 \input{./paper/visitor/vorundnachteile}
 
-
-%-------------------------------------
-% Quellen / Glossar
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%[Quellen]
 \input{./paper/quellen/quellen}
 
-%-------------------------------------
 
 \end{document}

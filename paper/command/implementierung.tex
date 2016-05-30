@@ -1,9 +1,12 @@
-Für das Command-Pattern ist aus der Sicht des Autors folgende drei Erweiterungsmöglichkeiten des Command-Patterns entscheident. Alle drei stammen aus [GoF]. 
+Die Literatur beschreibt zwei  Möglichkeiten die  durch das Command-Pattern realisiert werden können und eine, die auf unterschiedliche Art umgesetzt werden kann. Zunächst wird die Undo-Funtion und die Makro-Befehle vorgestellt. Dann wird über die Aufgaben eines Command-Objekts gesprochen.
 
-\paragraph{Erweiterung durch eine Undo-Funktion} Da jetzt jeder Befehl bzw. Aktion in einem Objekt gekapselt ist, kann man sehr einfach diese in einer Liste oder ähnlichem Lagern. Mit dieser Erkenntnis könnte man auf diese Art eine Undo-Funktion realisieren, die alle getätigten Befehle zurücknimmt um zum Ausgangszustand zurückzukommen. Man könnte hierfür auch das Command-Objekt derart erweitern, dass zusätzliche Informationen
+\paragraph{Erweiterung durch eine Undo-Funktion} Da jetzt jeder Befehl bzw. Aktion in einem Objekt gekapselt ist, kann man sehr einfach diese in einer Liste oder ähnlichem Lagern. Mit dieser Erkenntnis könnte man auf diese Art eine Undo-Funktion realisieren, die alle getätigten Befehle rückgängig macht. Für die Realisierung dieser Funktion muss man zunächst das Command-Inteface um eine weitere Funktion, eine Undo-Funktion, erweitern. Der Invoker müsste einen Mechanismus bereitstellen alle ausgeführten Requests zu speichern und das konkrete Command-Objekt muss sich folgende Informationen speichern:
+\begin{itemize}
+	\item Alle Parameter die dem Command-Objekt zur Ausführung übergeben wurde.
+	\item Das Receiver-Objekt
+	\item Den Ausgangszustand des Receivers
+\end{itemize}
 
-\paragraph{Aufgaben des Command-Objekts} Die Frage die man sich stellen sollte ist: Wie intelligent soll ein Command-Objekt sein. Einerseits kann man alle aufgaben an den Receiver deligieren. Das andere Extrem muss das Command-Objekt nichts von dem Receiver kennen und implementiert die komplette Logik.
+\paragraph{Makro-Befehle} Denkbar ist auch, mehrere Receiver an das Command-Objekt zu geben um so mehrere Aktionen durchführen zu können. Eine andere Möglichkeit wäre, in ein Command andere Commands auszuführen. Beides führt zu einer leichten Implementierung eines Commands das mehrere unabhängige Schritte ausführt.
 
-\paragraph{Makro-Befehle} Denkbar ist auch, mehrere Receiver an das Command-Objekt zu geben um so mehrere Aktionen durchführen zu können.
-
-
+\paragraph{Aufgaben des Command-Objekts} Für die Implementierung des Command-Objekts ist noch zu klären: Wie intelligent soll ein Command-Objekt sein. Einerseits kann man alle Aufgaben an den Receiver deligieren. Andererseits könnte das Command-Objekt alle Aufgaben selbst übernehmen. 

@@ -1,15 +1,16 @@
 public class MacroCommand implements Command {
 
     public MacroCommand(Company aCompany, 
-		PrivatePerson aPrivatePerson){
+		PrivatePerson aPrivatePerson,Package aPackage){
         mCompany = aCompany;
         mPrivatePerson = aPrivatePerson;
+        mPackage = aPackage;
     }
     @Override
-    public void execute(Deliverable aObject) {
-        mCompany.cheackPackage(aObject);
-        mCompany.deliverPackage(aObject);
+    public void execute() {
+        mCompany.cheackPackage(mPackage);
+        mCompany.deliverPackage(mPackage);
 
-        mPrivatePerson.deliverLetter(aObject);
+        mPrivatePerson.deliverLetter(mPackage);
     }
 }

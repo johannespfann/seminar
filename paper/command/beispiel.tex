@@ -1,46 +1,37 @@
-Als  Beispieszenario wird  ein Logistikunternehmen das verschiedene Pakete versendet gewählt. Bei der Übermittlung von unterschiedlichen Paketen zu unterschiedlichen Empfängern müssen verschiedene Schritte getätigt werden. Außerdem können sich durch neue Richtlinien Arbeitsschritte ändern. 
-Durch eine zusätzliche Schicht trennen wir das Vorhaben, ein Paket zu versenden von den tatächlichen Schritten, die es benötigt um ein Paket zu versenden. 
-Als erstes konstruieren wir eine Schnittstelle \texttt{Command}. Dieser geben wir eine Methode \texttt{execute} mit dem Parameter Paket. 
+Das Command-Pattern wird anhand eines Lieferdienstes näher beschrieben. Ein Lieferdienst hat grundsätzliche die Aufgabe Sachgegenstände zu versenden. Welche Gegenstände das sind, bzw. an wen diese gesendet werden, ist losgelöst von dem Dienst etwas zu versenden. Möchten wir dieses Szenario implementieren, hätten wir drei Teile: Den Lieferdienst, eine Ausführung und einen Empfänger. Das Command-Pattern gliedert genau diese drei Akteure und stellt als erstes die Ausführung als Interface dar, nämlich dem \texttt{Command} (siehe Abbildung \ref{command_interface}). Diese enthält eine Methode \texttt{execute()} die dann ein Invoker, in unserem Fall der \texttt{DeliveryService} aufrufen kann. 
 
-\begin{beispiel}{java}{Command}{Command}
-public interface Command {
-    void execute(Paket aPaket);
-}
-\end{beispiel}
 
-Danach erstellen wir das Logistikunternehmen als Objekt um von dort alle Arten von Paketen zu versenden. Welches Command-Objekt zum Ausführen der jeweiligen Schritte verwenden wird von außerhalb bestimmt.
+\begin{listing}[h!]
+   \centering
+   \javacode{./resources/command_interface.java}
+   \caption{Command Interface}
+    \label{command_interface}
+\end{listing}  
 
-\begin{beispiel}{java}{Logistikunternehmen}{InlandskundeSecureCommand}
-public class Logistikunternehmen {
-    Command mCommand = null;
-    public Logistikunternehmen(Command aCommand){
-        mCommand = aCommand;
-    }
-    public void versendePacket(Paket aPaket){
-        mCommand.execute(aPaket);
-    }
-}
-\end{beispiel}
+In Listing \ref{command_deliveryservice} wird der Aufruf des DeliveryService demonstriert. Dieser kennt nur das Interface Command, welches die Execute-Methode besitzt. Welche konkrete Implementierung eines Commands in der Methode \texttt{sendObject(Command aCommand)} übergeben und dann ausgeführt wird, ist für den DeliveryService nicht ersichtlich. 
 
-Die erste Veriante um ein Paket zu versenden, ist das \texttt{InlandsKundenDefaultCommand}. Dieses kennt seinen Empfänger, nämlich den Inlandskunden und ruft auf diesem nur die Methode \texttt{empfangePaket} auf.
+\begin{listing}[h!]
+   \centering
+   \javacode{./resources/command_DeliveryService.java}
+   \caption{DeliveryService}
+    \label{command_deliveryservice}
+\end{listing} 
 
-\begin{beispiel}{java}{InlandsKundeDefaultCommand}{InlandsKundeDefaultCommand}
-public class InlandsKundeDefaultCommand implements Command{
-    Inlandskunde mInlandskunde;
-    public void execute(Paket aPaket) {
-        mInlandskunde.empfangePaket(aPaket);
-    }
-}
-\end{beispiel}
+Danach werden verschiedene konkrete Commands implementiert, die einerseits den Empfänger kennen und andererseits wissen, wie sie diesen beliefern müssen. Listing \ref{command_deliverbigpackagecommand} zeigt exemplarisch eine Implementierung eines Commands. 
 
-Die zweite Variante ist die sichere Übermittlung eines Paketes mit einer zusätzlichen Verpackung. Wieder kennt das Command-Objekt den Empfänger und ruft dessen Methode auf. Allerdings wird Logik in dem Command-Objekt behandelt indem das Paket zusätzlich verpackt wird.
 
-\begin{beispiel}{java}{InlandskundeSecureCommand}{InlandskundeSecureCommand}
-public class InlandskundeSecureCommand {
-    Inlandskunde mInlandskunde;
-    public void execute(Paket aPaket) {
-        mInlandskunde.empfangePaket(verpackePacket(aPaket));
-    }
-}
-\end{beispiel}
+\begin{listing}[h!]
+   \centering
+   \javacode{./resources/command_DeliverBigPackageCommand.java}
+   \caption{DeliverBigPackageCommand}
+    \label{command_deliverbigpackagecommand}
+\end{listing}  
 
+In Listing \ref{command_main} wird das Zusammenspiel der Akteure dargestellt. Zunächst wird ein DeliveryService initialisiert, danach zwei konkrete Commands. Das Erste ist das \texttt{DeliverBigPackageCommand} das einerseits dem Empfänger und andererseits, für unser Beispiel speziell zugeschnitten, ein Objekt Package übergeben werden. Dem Zweite, das \texttt{DeliverLetterCommand} wird ebenfalls ein Empfänger und ein zusätzliches Objekt bereitgestellt. Beide Commands implementieren unterschiedliche Schritte zur Ausliefern eines Objektes, können jedoch beide auf diese Art von dem DeliveryService versendet werden. (Listing \ref{command_main} Zeile 10-13).
+
+\begin{listing}[h!]
+   \centering
+   \javacode{./resources/command_main.java}
+   \caption{Main}
+    \label{command_main}
+\end{listing}  
