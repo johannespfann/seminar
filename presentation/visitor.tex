@@ -56,6 +56,23 @@ Das Visitor Pattern ermöglicht es, neue Operationen auf den Elementen einer Str
 \end{frame}
 
 \begin{frame}
+	\frametitle{Beispiel}		
+	\begin{itemize}
+		\item Der Client erstellt die Instanzen cleanVisitor, potato und broccoli
+		\item Übergibt Elemente über Accept-Methode(potato und broccoli) den Visitor
+		\item Elemente rufen die jeweilige Visit-Methode auf und übergeben sich selbst
+		\item Der Visitor bearbeitet dann das übergebene Element
+	\end{itemize}	
+  	\begin{figure}
+		\includegraphics[scale=.6]{paper/visitor/visitor_sequenz}
+		                                        
+	\end{figure}
+\end{frame}
+
+
+
+
+\begin{frame}
 	\frametitle{Implementierungsmöglichkeiten}
   \begin{block}{Wer ist für die Traversierung der Objektstruktur verantwortlich}
   	\begin{itemize}

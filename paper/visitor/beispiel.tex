@@ -38,10 +38,16 @@ Daraufhin kann ein konkreter Visitor, hier der CleanVisitor (siehe Listing \ref{
     \label{visitor_cleanvisitor}
 \end{listing}  
 
-Zusammenfassend dient das Sequenzdiagramm in Abbildung \ref{visitor_sequenzdiagramm} um den gesamten Ablauf zu rekapitulieren. Ein beliebiger Client erstellt zunächst die Elemente der Objektstruktur und den Visitor. Dann ruft er bei beiden Elementen mit die Accept-Methode auf und übergibt den Elementen den erstellten konkreten Visitor. Diese rufen ihrerseits die Accept-Methode auf und übergeben sich selbst. Der Visitor ist nun in der Lage die übergebenen Elemente in den dafür vorgesehenen Visit-Methoden zu bearbeiten.
+Abschließend dient das Sequenzdiagramm in Abbildung \ref{visitor_sequenzdiagramm}, um den gesamten Ablauf zu rekapitulieren. Ein beliebiger Client erstellt zunächst die Elemente der Objektstruktur und den Visitor. Dann ruft er bei beiden Elementen mit die Accept-Methode auf und übergibt den Elementen den erstellten konkreten Visitor. Diese rufen ihrerseits die Accept-Methode auf und übergeben sich selbst. Der Visitor ist nun in der Lage die übergebenen Elemente in den dafür vorgesehenen Visit-Methoden zu bearbeiten.
 
 
-
+\begin{figure}[htbp]
+\centering
+%\includegraphics[scale=.5]{./observer/observer}
+\includegraphics[width=0.7\textwidth]{./paper/visitor/visitor_sequenz}
+\caption{Eine UML-Darstellung von dem Visitor-Pattern.}
+\label{visitor_sequenzdiagramm}
+\end{figure} 
 
 
 

@@ -54,6 +54,20 @@
   		\javacode{resources/observer_Klient.java}	 
 \end{frame}
 
+\begin{frame}
+	\frametitle{Beispiel}
+	\begin{itemize}
+		\item Anmeldung der Instanzen aHomepage und aMonitor am aJobCenter 
+		\item Speicherung erfolgt in einer Collection<Observer>
+		\item Bei einer Zustandsänderung wird die notifyObserver-Methode aufgerufen
+		\item Benachrichtigung aller angemeldeten Observer
+	\end{itemize}		 
+  	\begin{figure}
+		\includegraphics[scale=.4]{paper/observer/observer_sequenz}
+	\end{figure}
+\end{frame}
+
+
 \subsection{Implementierungsmöglichkeiten}
 \begin{frame}
 \frametitle{Implementierungsmöglichkeiten}
