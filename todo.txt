@@ -1,6 +1,8 @@
 TODO:
 
+
+DONE:
+* Sequenzdiagramme für Observer und Visitor
 * Command-Beispiel: Objekte dem konkreten Command übergeben und nicht casten!!
 * Composite (Fehler)
-* Sequenzdiagramme für Observer und Visitor
-
+* Accept-Methode - Visitor - traversieren composite 

@@ -1,6 +1,7 @@
 public class DeliverBigPackageCommand implements Command {	
     ...
-    public DeliverBigPackageCommand(Company aCompany,Package aPackage){
+    public DeliverBigPackageCommand(Company aCompany,
+                  Package aPackage){
         mCompany = aCompany;
         mPackage = aPackage
     }
