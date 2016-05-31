@@ -1,5 +1,5 @@
-Das Beispielszenario behandelt eine fiktive Arbeitsvermittlung deren Softwaresystem mit dem  Observer-Pattern umgesetzt wird. In dem Softwaresystem gibt es eine zentrale Komponente JobCenter, welche in regelmäßigen Abständen neue Stellenauschreibungen von externen Arbeitgebern mitgeteilt bekommt. Diese werden auf der Homepage, sowie auf zahllosen Monitoren in der Arbeitsvermittlung aufgelistet. Bei einer neuen Stellenausschreibung soll die Komponente Jobcenter selbständig alle abhängigen Komponenten, wie Homepage und Monitore benachrichtigen, sodass diese sich aktualisieren können.
-Für dieses Szenario identifizieren wir das Jobcenter als die Rolle des Subjects und die Homepage und Monitore als Observer. Nachfolgend in Listing \ref{observer_observer_interface} und \ref{observer_subject_interface} sind diese zwei Rollen als Interfaces umgesetzt.
+Das Beispielszenario behandelt eine Arbeitsvermittlung deren Softwaresystem mit dem  Observer-Pattern umgesetzt wird. In dem Softwaresystem gibt es eine zentrale Komponente, das JobCenter, welches in regelmäßigen Abständen neue Stellenauschreibungen von externen Arbeitgebern mitgeteilt bekommt. Diese werden auf der Homepage, sowie auf zahllosen Monitoren in der Arbeitsvermittlung aufgelistet. Bei einer neuen Stellenausschreibung soll die Komponente Jobcenter selbständig alle abhängigen Komponenten, wie Homepage und Monitore benachrichtigen, sodass diese sich aktualisieren können.
+Für dieses Szenario nimmt das Jobcenter  die Rolle Subjects ein und die Homepage und die Monitore die Rolle Observer. Nachfolgend in Listing \ref{observer_observer_interface} und \ref{observer_subject_interface} sind diese zwei Rollen als Interfaces umgesetzt.
 Das Subject definiert neben der Methode \texttt{notifyObsevers()}, zum benachrichtigen aller angemeldeten Observer eine Methode \texttt{attach(Observer)} und \texttt{detach(Observer)} zum An- und Abmelden eines Observers. Das Interface Observer muss hingegen nur zum aktualisieren einer Stellenausschreibung, eine Methode \texttt{update(Offer)} bereitstellen. Der Parameter \texttt{Offer} symbolisiert eine solche Stellenausschreibung, die über die genannte Update-Methode übergeben wird.
 
 
@@ -19,7 +19,7 @@ Das Subject definiert neben der Methode \texttt{notifyObsevers()}, zum benachric
           
   
 Im zweiten Schritt wird dann die Klasse Jobcenter (siehe Listing \ref{observer_jobcenter}) implementiert, die von dem Interface Subject erbt und somit die Methoden \texttt{attach(Observer aObserver}, \texttt{detach(Observer aObserver)} und \texttt{notifyObservers()} umsetzt. Zusätzlich initialisiert das Subject eine Collection um die übergebenen Observer über die Attach-Methode zu speichern. Mit der Detach-Methode wird ein Obsever der Collection entfernt. Beim Aufruf der NotifyObserver-Methode wird dieser eine Stellenausschreibung übergeben, die allen gespeicherten Observern über die Update-Methode übergeben wird. 
-Nennenswert ist einmal die Tatsache das das Jobangebot an dieser Stelle nur das Interface Observer kennt und das durch die Iteration ausnahmslos alle Observer benachrichtigt werden.
+Nennenswert ist  die Tatsache das das Jobangebot an dieser Stelle nur das Interface Observer kennt und das durch die Iteration ausnahmslos alle Observer benachrichtigt werden.
 
 \begin{listing}[h!]
    \centering
@@ -37,7 +37,7 @@ Als letztes betrachten wir die Klasse \texttt{Homepage} (siehe Listing \ref{obse
     \label{observer_client}
 \end{listing}
 
-In Abbildung \ref{observer_sequenz} wird der Ablauf eines solchen Szenarios anhand eines Sequenzdiagramm dargestellt. Zunächst melden sich die Observer \texttt{Homepage} und \texttt{Monitor} am Jobcenter an. Danach wird das JobCenter aktualisiert und alle angemeldeten Observer benachrichtigt.
+In Abbildung \ref{observer_sequenz} wird der Ablauf eines solchen Szenarios anhand eines Sequenzdiagramm dargestellt. Zunächst melden sich die Observer \texttt{Homepage} und \texttt{Monitor} am Jobcenter an. Danach wird das JobCenter aktualisiert und alle angemeldeten Observer benachrichtigt, damit diese sich selbständig aktualisieren können.
 
 \begin{figure}[h!]
 \centering
