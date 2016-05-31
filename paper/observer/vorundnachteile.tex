@@ -1,12 +1,11 @@
 \subsubsection{Vorteile}
 \begin{itemize}
 \item Wiederverwendbarkeit: Die Aufteilung von Beobachter und Subjekt sind Rollenbasiert. Ein Objekt kann sowohl ein Subjekt als auch ein Beobachter sein.
-\item Abstrakte Kopplung von Beobachter und Subjekt: Das Subjekt kennt keinen konkreten Beobachter. (GOF) 
+\item Abstrakte Kopplung von Beobachter und Subjekt: Das Subjekt kennt keinen konkreten Beobachter.  
 \item Es muss im Voraus nicht bekannt sein, wie viele abhängige Objekte sich zur Laufzeit registrieren, und welche das sind.
 \end{itemize}
 \subsubsection{Nachteile}
 \begin{itemize}
-\item Gefahr von Zyklen
-\item Aktualisierungskaskaden bei großen Systemen und somit schwere Fehlersuche
-Falls sich nicht vom Subjekt abgemeldet, jedoch öfters angemeldet wird. Unerwartete Nebenerffekte
+\item In manchen Fällen kann das Observer-Pattern allerdings zu Problemen führen. Beispielswiese könnte es zu Situationen kommen, dass mehrere Observer gleichzeitig Subjects von weiteren Observer sind usw. Die Komplexität steigt schenll bei solchen Sytemen und gerade bei der Fehlersuche kann dadurch erschwert werden.
+\item Außerdem besteht die Gefahr von zyklischen Abhängigkeiten. Ein Subject kann durch komplexe Verkettungen gleichzeitig auch ein Observer dieser Abhängigkeitskette sein, sodass eine Benachrichtigung gleichzeitig zu einer eigenen Aktualisierung führt, die wiederum  eine Benachrichtigung auslöst.
 \end{itemize}
