@@ -1,5 +1,5 @@
 
-Das folgende Beispiel soll das Visitor-Pattern und die Möglichkeiten, welche sich aus dem Pattern ergeben, besser erklären. In einer Küche gibt es mehrere Sorten Gemüse. Die Variation dieser verschiedenen Sorten ist überschaubar und wird sich nicht mehr ändern. Allerdings ist unklar, welche Operationen auf diese Objekte angewendet werden und in Zukunft noch angewendet werden. Um dieses zu berücksichtigen erstellen wir eine Objektstruktur und verlagern die Operationen auf dieses nicht in den Objekten selbst, sondern außerhalb. Hierfür erstellen wir zunächst ein Interface \texttt{Element} mit der Schnittstelle \texttt{accept(Visitor aVisitor} und lassen jedes Element unserer Objektstuktur dieses Interface implementieren. Damit verschaffen wir jedem Element die Möglichkeit ein Visitor-Objekt zu erhalten und auf dessen Methoden zuzugreifen.
+Das folgende Beispiel soll das Visitor-Pattern und die Möglichkeiten, welche sich aus dem Pattern ergeben, besser erklären. In einer Küche gibt es mehrere Sorten Gemüse. Die Variation dieser verschiedenen Sorten ist überschaubar und wird sich nicht mehr ändern. Allerdings ist unklar, welche Operationen auf diese Objekte angewendet werden. Um dieses zu berücksichtigen erstellen wir eine Objektstruktur und verlagern die Operationen auf dieses nicht in den Objekten selbst, sondern außerhalb. Hierfür erstellen wir zunächst ein Interface \texttt{Element} mit der Schnittstelle \texttt{accept(Visitor aVisitor} und lassen jedes Element unserer Objektstuktur dieses Interface implementieren. Damit verschaffen wir jedem Element die Möglichkeit ein Visitor-Objekt zu erhalten und auf dessen Methoden zuzugreifen.
 
 
 \begin{listing}[h!]
@@ -19,7 +19,7 @@ Als nächstes erstellen wir das Visitor-Objekt (Listing \ref{visitor_visitor_int
     \label{visitor_visitor_interface}
 \end{listing}  
 
-In Listing \ref{visitor_potato} ist ein konkretes Elemnt implementiert. Dieses muss durch das Interface Element die Accept-Methode implementieren und bekommt einen beliebigen Visitor.
+In Listing \ref{visitor_potato} wird ein konkretes Element vorgestellt. Dieses muss durch das Interface Element die Accept-Methode implementieren und bekommt einen beliebigen Visitor.
 In dieser Accept-Methode ruft das Element Potato dann die für ihn gedachte Visitor-Methode, nämlich die \texttt{visitPotato(Potato)} auf und übergibt sich selbst als Potato-Element.
 
 \begin{listing}[h!]
@@ -38,14 +38,14 @@ Daraufhin kann ein konkreter Visitor, hier der CleanVisitor (siehe Listing \ref{
     \label{visitor_cleanvisitor}
 \end{listing}  
 
-Abschließend dient das Sequenzdiagramm in Abbildung \ref{visitor_sequenzdiagramm}, um den gesamten Ablauf zu rekapitulieren. Ein beliebiger Client erstellt zunächst die Elemente der Objektstruktur und den Visitor. Dann ruft er bei beiden Elementen mit die Accept-Methode auf und übergibt den Elementen den erstellten konkreten Visitor. Diese rufen ihrerseits die Accept-Methode auf und übergeben sich selbst. Der Visitor ist nun in der Lage die übergebenen Elemente in den dafür vorgesehenen Visit-Methoden zu bearbeiten.
+Abschließend veranschaulicht das Sequenzdiagramm in Abbildung \ref{visitor_sequenzdiagramm}  noch einmal den gesamten Ablauf. Ein beliebiger Client erstellt zunächst die Elemente der Objektstruktur und den Visitor. Dann ruft er bei beiden Elementen mit die Accept-Methode auf und übergibt den Elementen den erstellten konkreten Visitor. Diese rufen ihrerseits die Accept-Methode auf und übergeben sich selbst. Der Visitor ist nun in der Lage die übergebenen Elemente in den dafür vorgesehenen Visit-Methoden zu bearbeiten.
 
 
 \begin{figure}[htbp]
 \centering
 %\includegraphics[scale=.5]{./observer/observer}
 \includegraphics[width=0.7\textwidth]{./paper/visitor/visitor_sequenz}
-\caption{Eine UML-Darstellung von dem Visitor-Pattern.}
+\caption{Der Ablauf des Visitor-Pattern als Sequenzdiagramm}
 \label{visitor_sequenzdiagramm}
 \end{figure} 
 
