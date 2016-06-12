@@ -44,7 +44,7 @@ visitPotato(Potato)
       <w>310</w>
       <h>80</h>
     </coordinates>
-    <panel_attributes>*CockVisitor*
+    <panel_attributes>*CookVisitor*
 --
 visitBroccoli(Broccoli)
 visitPotato(Potato)
