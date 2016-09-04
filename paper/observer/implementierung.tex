@@ -7,7 +7,14 @@ Die Pull Methode verfolgt einen anderen Ansatz. Hier werden keine Daten als Para
 
 %\paragraph{Lagerung der Beobachter} Hintegrund ist folgendes Szenario: Es gibt viele Subjekts und einige Beobachter. Die Subjekts müssen jetzt alle die Instanzen der jeweiligen Beobachter speichern. Um sich diesen Speicher zu ersparen, könnte man die Auflistung aller Beobachter in einer externen Datenstruktur bzw. Objekt lagern.
 
-\paragraph{Beobachter beobachtet mehr als ein Subjekt} Wenn ein Observer mehrere Subjects beobachtet, kann es passieren, das er im Falle einer Benachrichtigung nicht feststellen kann, von wem die Update-Methode aufgerufen wurde. Abhilfe schafft die Erweiterung der Update-Methode mit einem zusätzlichen Parameter \texttt{Subject}. Das Subject kann sich bei der Benachrichtigung selbst übermitteln, damit der Observer weiß von wem er benachrichtig wurde.
+\paragraph{Beobachter beobachtet mehr als ein Subjekt} Wenn ein Observer mehrere Subjects beobachtet, kann es passieren, das er im Falle einer Benachrichtigung nicht feststellen kann, von wem die Update-Methode aufgerufen wurde. Abhilfe schafft die Erweiterung der Update-Methode mit einem zusätzlichen Parameter \texttt{Subject}. Das Subject kann sich bei der Benachrichtigung selbst übermitteln, damit der Observer weiß von wem er benachrichtig wurde. (Siehe Abbildung \ref{observer_update})
+
+\begin{listing}[h!]
+   \centering
+   \javacode{./resources/observer_erweiterung_update.java}
+   \caption{Jobcenter}
+    \label{observer_update}
+\end{listing} 
 
 \paragraph{Ausführung des Updates} Das Anstoßen der Benachrichtigungen kann entweder vom Client als auch vom konkreten Subject durchgeführt werden. Der Vorteil dies dem konkretem Subject zu überlassen ist die Vermeidung von Fehlern. Fügt man die Notify-Methode nach der Änderung eines Werte in dem Subject ein, wird ein Automatismus geschaffen, sodass die Benachrichtigung nicht vergessen werden kann. Der Nachteil dieser Implementierung ist, das dadurch die Anzahl der Updates höher ausfallen könnte. Die andere Variante überlässt den Client die Verantwortung, nachdem er seine Änderungen übermittelt hat, die Notify-Methode aufzurufen. Hier können zwar die Benachrichtigungen gezielter ausgeführt werden, allerdings könnte die Benachrichtigung auch vergessen werden.
 
@@ -15,9 +22,25 @@ Die Pull Methode verfolgt einen anderen Ansatz. Hier werden keine Daten als Para
 
 %\paragraph{Vor dem Benachrichtigen das Subjekt zuerst updaten} Bei der Implementierung des konkreten Subjekts sollte beachtet werden, vor der Benachrichtigung der Beobachter, zuerst das Subjekt zu aktualisieren. Gerade bei vererbten Methoden besteht Gefahr eines solchen Szenario.
 
-\paragraph{Erweiterung der Benachrichtigung für ein bestimmtes Interesse} In bestimmten Fällen kann es sein, das ein Beobachter nur auf bestimmte Events benachrichtigt werden möchte. In diesem Fall bietet sich an,  die Methode \texttt{attach(Observer)} um einen weiteren Parameter zu erweitern, damit der Beobachter dadurch das Interesse auf ein bestimmtes Event signalisieren kann.
+\paragraph{Erweiterung der Benachrichtigung für ein bestimmtes Interesse} In bestimmten Fällen kann es sein, das ein Beobachter nur auf bestimmte Events benachrichtigt werden möchte. In diesem Fall bietet sich an,  die Methode \texttt{attach(Observer)} um einen weiteren Parameter zu erweitern, damit der Beobachter dadurch das Interesse auf ein bestimmtes Event signalisieren kann. (Siehe Abbildung \ref{observer_update_with_observer})
 
-\paragraph{Die externe Verwaltung der Beobachter} Wenn die Beziehung zwischen den konkreten Subject und den Observer zu komplex wird, empfielt sich die Verwaltungsaufgaben zwischen Subject und dessen Observer auszulagern. In der Literatur wird von einem ChangeManager gesprochen. Dieser regelt folgende Gebiete: Das Mapping zwischen den Subjects und den Observer. Definiert spezielle Aktualisierungsstrategien und übernimmt die Benachrichtigung eines konkreten Subjects für dessen Observer.
+\begin{listing}[h!]
+   \centering
+   \javacode{./resources/observer_sortToObserverlist.java}
+   \caption{Erweiterte }
+    \label{observer_update_with_observer}
+\end{listing} 
+
+\paragraph{Die externe Verwaltung der Beobachter} Wenn die Beziehung zwischen den konkreten Subject und den Observer zu komplex wird, empfiehlt sich die Verwaltungsaufgaben zwischen Subject und dessen Observer auszulagern. In der Literatur wird von einem ChangeManager gesprochen. Dieser definiert das Mapping zwischen den Subjects und den Observer, regelt spezielle Aktualisierungsstrategien und übernimmt die Benachrichtigung eines konkreten Subjects für dessen Observer. (Siehe Abbildung \ref{observer_changemanager})
+
+
+
+\begin{listing}[h!]
+   \centering
+   \includegraphics[scale=.4]{paper/observer/changemanager}
+   \caption{Changemanager}
+    \label{observer_changemanager}
+\end{listing} 
 
 %\paragraph{Subjekt als Interface oder Abstrakte Klasse} Das Subjekt kann ein Interface oder als abstrakte klasse implementiert sein. Der Nachteil bei einer abstrakten Klasse ist, dass nicht auf verschiedene konkrete Subjekts eingegangen werden kann. Jedoch erhöht sich der PRogrammieraufwand durch die wiederholte Implementierung des Selben Codes.
 
